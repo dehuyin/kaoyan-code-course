@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>计算机考研代码课程 | 北航学长出品</title>
+  <style>
+    :root {
+      --primary: #3B5BDB;
+      --primary-light: #4C6EF5;
+      --primary-bg: #EDF2FF;
+      --accent: #F76707;
+      --accent-bg: #FFF4E6;
+      --green: #2F9E44;
+      --green-bg: #EBFBEE;
+      --text: #212529;
+      --text-muted: #6C757D;
+      --border: #DEE2E6;
+      --bg: #F8F9FA;
+      --white: #FFFFFF;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+                   "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section { padding: 56px 0; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #1C3FAA 0%, #3B5BDB 60%, #4C6EF5 100%);
+      color: white;
+      padding: 72px 0 64px;
+      text-align: center;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 13px;
+      letter-spacing: .5px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(24px, 5vw, 38px);
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .hero h1 span {
+      color: #FFD43B;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(15px, 2.5vw, 18px);
+      opacity: 0.92;
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+
+    .pain-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .pain-tag {
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: 14px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #F76707;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 32px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 4px 14px rgba(247,103,7,0.4);
+    }
+    .btn-primary:hover { background: #E05A00; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 8px;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background .2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.25); }
+
+    /* ===== SECTION HEADER ===== */
+    .section-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .section-header h2 {
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+    .section-tag {
+      display: inline-block;
+      background: var(--primary-bg);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      letter-spacing: .5px;
+    }
+
+    /* ===== VALUE SECTION ===== */
+    .value-section { background: white; }
+
+    .value-intro {
+      background: var(--green-bg);
+      border-left: 4px solid var(--green);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .value-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 560px) {
+      .value-cards { grid-template-columns: 1fr; }
+    }
+
+    .value-card {
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .value-card:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow);
+    }
+
+    .value-card .card-badge {
+      display: inline-block;
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .badge-408 { background: #E7F5FF; color: #1971C2; }
+    .badge-zmt { background: #FFF0F6; color: #C2255C; }
+
+    .value-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .value-card ul {
+      list-style: none;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .value-card ul li {
+      padding: 4px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+    .value-card ul li::before {
+      content: "✓";
+      color: var(--green);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    /* ===== FREE SECTION ===== */
+    .free-section { background: var(--accent-bg); }
+
+    .free-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .free-card .free-icon { font-size: 48px; margin-bottom: 12px; }
+    .free-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+    .free-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+    .free-steps {
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 14px;
+    }
+    .free-steps .step {
+      padding: 6px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .step-num {
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ===== PRICING ===== */
+    .pricing-section { background: white; }
+
+    .pricing-note {
+      text-align: center;
+      background: var(--primary-bg);
+      border-radius: 8px;
+      padding: 11px 20px;
+      font-size: 13px;
+      color: var(--primary);
+      margin-bottom: 28px;
+      font-weight: 500;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 640px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
+    .price-card {
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .2s, transform .15s, box-shadow .2s;
+    }
+    .price-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    .price-card.featured {
+      border-color: var(--primary-light);
+      position: relative;
+    }
+    .featured-label {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .price-card .plan-name {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .price-card .plan-target {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .price-card .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .price-current {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .price-original {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+    .price-save {
+      font-size: 11px;
+      background: #FFF0E0;
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-weight: 600;
+    }
+    .price-unlock {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+    .price-features {
+      list-style: none;
+      font-size: 13px;
+      flex: 1;
+    }
+    .price-features li {
+      padding: 5px 0;
+      padding-left: 18px;
+      position: relative;
+      color: var(--text-muted);
+      border-bottom: 1px solid #F1F3F5;
+    }
+    .price-features li:last-child { border-bottom: none; }
+    .price-features li::before {
+      content: "✓";
+      color: var(--green);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    /* ===== BENEFITS ===== */
+    .benefits-section { background: var(--bg); }
+
+    .benefits-gate {
+      text-align: center;
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .benefits-gate strong { color: var(--text); }
+
+    .benefit-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .benefit-item {
+      background: white;
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: box-shadow .2s;
+    }
+    .benefit-item:hover { box-shadow: var(--shadow); }
+
+    .benefit-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+      width: 44px;
+      text-align: center;
+    }
+
+    .benefit-content h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .benefit-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .benefit-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .tag-408 { background: #E7F5FF; color: #1971C2; }
+    .tag-zmt { background: #FFF0F6; color: #C2255C; }
+    .tag-value { background: #EBFBEE; color: #2F9E44; }
+
+    /* ===== TRUST ===== */
+    .trust-section { background: white; }
+
+    .trust-card {
+      background: linear-gradient(135deg, #F8F9FF, #EDF2FF);
+      border: 1.5px solid #C5D0FA;
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+    .trust-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .trust-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    @media (max-width: 480px) {
+      .trust-stats { grid-template-columns: 1fr 1fr; }
+    }
+    .stat-item {
+      text-align: center;
+      background: white;
+      border-radius: 8px;
+      padding: 14px 10px;
+    }
+    .stat-num {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .review-item {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-size: 14px;
+      position: relative;
+      padding-left: 30px;
+    }
+    .review-item::before {
+      content: '"';
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      font-size: 24px;
+      color: var(--primary-light);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    .review-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* ===== WATCH INFO ===== */
+    .watch-section { background: var(--bg); }
+
+    .watch-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      border: 1.5px solid var(--border);
+    }
+    .watch-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .watch-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .watch-card .tip {
+      background: #FFF9DB;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #856404;
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(135deg, #1C3FAA, #3B5BDB);
+      color: white;
+      text-align: center;
+      padding: 64px 0;
+    }
+    .cta-section h2 {
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      opacity: .88;
+      font-size: 15px;
+      margin-bottom: 36px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+    @media (max-width: 520px) {
+      .cta-steps { grid-template-columns: 1fr; }
+    }
+    .cta-step {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: left;
+    }
+    .cta-step .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      opacity: .75;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .cta-step p {
+      font-size: 14px;
+      opacity: .9;
+      margin-bottom: 14px;
+    }
+
+    .guarantee {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #1A1D2E;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+    }
+
+    /* ===== STICKY BAR ===== */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    }
+    .sticky-bar .sticky-text {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .sticky-bar .sticky-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .sticky-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 22px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .sticky-btn:hover { background: #E05A00; }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      width: 48px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin: 12px auto 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ① HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="badge">👨‍🏫 北航高分学长出品 · 7年考研代码辅导经验</div>
+    <h1>计算机考研代码题，<br><span>不用再死磕题库了！</span></h1>
+    <p class="subtitle">
+      没时间刷完全部代码？抓不住考试重点？暴力解拿不到满分？<br>
+      一套课程全解决，帮你用<strong>最少的时间</strong>，拿满代码题分数。
+    </p>
+    <div class="pain-list">
+      <span class="pain-tag">😰 刷题没有方向</span>
+      <span class="pain-tag">📚 王道代码量太大</span>
+      <span class="pain-tag">✍️ 暴力解失分严重</span>
+      <span class="pain-tag">🏫 自命题找不到重点</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#pricing" class="btn-primary">查看课程价格</a>
+      <a href="#free" class="btn-secondary">🎁 免费领取 63 题</a>
+    </div>
+  </div>
+</section>
+
+<!-- ② CORE VALUE -->
+<section class="value-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">核心差异化价值</span>
+      <h2>为什么这套课能帮你告别无效刷题？</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="value-intro">
+      ✅ 我们已把<strong>王道课后核心考点</strong>、<strong>408 近 17 年（09-25）真题代码</strong>、<strong>自命题院校高频考点</strong>，全部浓缩打磨成必考重点库。每道题配套「保底暴力得分解 + 考场满分最优解」双版本讲解，不用大海捞针，只学考场会考的内容。
+    </div>
+
+    <div class="value-cards">
+      <div class="value-card">
+        <span class="card-badge badge-408">📝 408 统考考生专属</span>
+        <h3>吃透真题，掌握满分逻辑</h3>
+        <ul>
+          <li>覆盖 408 近 17 年全部代码题型</li>
+          <li>每题配套暴力得分解 + 满分最优解</li>
+          <li>配套 15 道年度专属预测题</li>
+          <li>贴合统考阅卷标准，直接对标答题规范</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <span class="card-badge badge-zmt">🏫 自命题考生专属</span>
+        <h3>分院校定制，不复习偏</h3>
+        <ul>
+          <li>分院校定制重点代码库</li>
+          <li>重邮 / 新大 / 湖大额外赠专属真题讲解</li>
+          <li>59 个核心必考代码精准勾画</li>
+          <li>自命题考点覆盖率 100%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ③ FREE -->
+<section class="free-section" id="free">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">零门槛体验</span>
+      <h2>先免费领取，再决定要不要买</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="free-card">
+      <div class="free-icon">🎁</div>
+      <h3>免费基础 63 题</h3>
+      <p>计算机考研代码基础核心题目，打牢基础、提前感受课程质量，无任何门槛</p>
+      <div class="free-steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <span>前往 B 站，找到本课程最新视频</span>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <span>完成「三连 + 关注」操作</span>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <span>截图私信，即可直接领取资料</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">付费课程体系</span>
+      <h2>选择适合你的版本</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="pricing-note">
+      💡 所有付费版本优惠价，均需完成 B 站对应课程视频「三连 + 关注」后私信截图解锁
+    </div>
+    <div class="pricing-grid">
+
+      <div class="price-card featured">
+        <div class="featured-label">🔥 最受欢迎</div>
+        <div class="plan-name">自命题速成版</div>
+        <div class="plan-target">适合：自命题院校考研考生</div>
+        <div class="price-row">
+          <span class="price-current">¥198</span>
+          <span class="price-original">¥238</span>
+          <span class="price-save">省40元</span>
+        </div>
+        <div class="price-unlock">B 站三连解锁专属优惠价</div>
+        <ul class="price-features">
+          <li>分院校定制重点代码文档</li>
+          <li>配套讲解视频（全套）</li>
+          <li>重邮 / 新大 / 湖大专属真题</li>
+          <li>含全部 6 大赠送权益</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <div class="plan-name">408 速成版</div>
+        <div class="plan-target">适合：408 统考考研考生</div>
+        <div class="price-row">
+          <span class="price-current">¥178</span>
+          <span class="price-original">¥198</span>
+          <span class="price-save">省20元</span>
+        </div>
+        <div class="price-unlock">B 站三连解锁专属优惠价</div>
+        <ul class="price-features">
+          <li>408 统考重点代码文档</li>
+          <li>配套讲解视频（全套）</li>
+          <li>17年真题代码全覆盖</li>
+          <li>含全部 6 大赠送权益</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <div class="plan-name">文档精简版</div>
+        <div class="plan-target">适合：有自学能力、仅需文档的考生</div>
+        <div class="price-row">
+          <span class="price-current">¥58</span>
+          <span class="price-original">¥88</span>
+          <span class="price-save">省30元</span>
+        </div>
+        <div class="price-unlock">B 站三连解锁专属优惠价</div>
+        <ul class="price-features">
+          <li>考研重点代码核心文档</li>
+          <li>无讲解视频（自学型）</li>
+          <li>59个必考重点精华版</li>
+          <li>不含赠送权益</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ BENEFITS -->
+<section class="benefits-section" id="benefits">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">赠送权益</span>
+      <h2>购课即享 6 大专属权益</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="benefits-gate">
+      <strong>以下权益仅适用于购买 408 速成版 或 自命题速成版的同学</strong>，总价值超 <strong>1000 元</strong>
+    </div>
+    <div class="benefit-list">
+
+      <div class="benefit-item">
+        <div class="benefit-icon">📋</div>
+        <div class="benefit-content">
+          <h4>408 真题全解 + 年度预测题
+            <span class="benefit-tag tag-408">408必看</span>
+          </h4>
+          <p>覆盖 408 近 17 年（09-25）代码真题，每道题配套「保底暴力得分解 + 考场满分最优解」双版本讲解；新增年度 15 道代码预测题 + 配套讲解，贴合统考命题趋势，往年预测命中率超 80%。</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">🎯</div>
+        <div class="benefit-content">
+          <h4>分院校重点勾画 + 专属真题
+            <span class="benefit-tag tag-zmt">自命题必看</span>
+          </h4>
+          <p>408 / 自命题均精炼 59 个核心必考代码，时间紧张可直接只学重点；自命题分院校定制重点分析，<strong>重邮 / 新大 / 湖大</strong>额外赠送专属代码真题讲解，不复习偏、不做无用功。</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">💬</div>
+        <div class="benefit-content">
+          <h4>全年微信群答疑 + 每月直播带学</h4>
+          <p>每月 4 次集体直播答疑，群内实时解答代码问题；免费分享考研初试 + 复试全阶段资料，整个备考期都有人陪跑。</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">💻</div>
+        <div class="benefit-content">
+          <h4>上机代码实操教学视频</h4>
+          <p>手把手教你代码验证方法，初试可自测答案对错，复试上机直接能用，一举两得。</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">📄</div>
+        <div class="benefit-content">
+          <h4>1 次一对一复试简历修改
+            <span class="benefit-tag tag-value">价值 ¥128</span>
+          </h4>
+          <p>学长一对一精修复试简历 + 导师联系邮件指导，复试通关加分，单独购买需 128 元 / 次，购课直接赠送。</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">📝</div>
+        <div class="benefit-content">
+          <h4>408 高分模拟卷 2 套</h4>
+          <p>免费赠送北航高分学长原创 408 模拟卷 + 全套答案解析，贴合统考难度，考前模考查漏补缺，精准定位薄弱点。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ⑥ TRUST -->
+<section class="trust-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">信任背书</span>
+      <h2>讲师介绍 & 辅导成果</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="trust-card">
+      <h3>👨‍🏫 北航计算机高分上岸学长</h3>
+      <p style="font-size:15px; line-height:1.8; color: #495057;">
+        408 代码题满分，7 年计算机考研代码辅导经验。<br>
+        课程覆盖了王道课后核心考点、408 历年真题全部代码题型，帮你省去大量刷题、筛选重点的时间，聚焦必考内容，高效提分。
+      </p>
+      <div class="trust-stats">
+        <div class="stat-item">
+          <span class="stat-num">3000+</span>
+          <div class="stat-label">学员高分上岸</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">80%+</span>
+          <div class="stat-label">408预测命中率</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">4000+</span>
+          <div class="stat-label">26届已报名人数</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-list">
+      <div class="review-item">
+        <p>代码课真的超级有用，考场上遇到的代码题基本都在课里练过，暴力解保底、最优解冲分，策略太实用了！</p>
+        <div class="review-meta">— 24届 · 上岸985 · 408统考</div>
+      </div>
+      <div class="review-item">
+        <p>自命题院校专属真题讲解是我没想到的惊喜，院校重点覆盖得很全，完全没有复习偏！</p>
+        <div class="review-meta">— 25届 · 上岸目标院校 · 自命题</div>
+      </div>
+      <div class="review-item">
+        <p>微信群答疑非常及时，每月的直播也很实在，不是水课，感觉整个备考期都有人托底。</p>
+        <div class="review-meta">— 25届学员 · 复试上岸</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑦ WATCH INFO -->
+<section class="watch-section">
+  <div class="container">
+    <div class="watch-card">
+      <h3>📺 课程观看说明</h3>
+      <p>
+        课程全程在 <strong>ClassIn 官方平台</strong>观看，支持同一 WiFi 环境下电脑、平板、手机<strong>多设备同时登录</strong>，灵活学习不受限。
+      </p>
+      <div class="tip">
+        ⚠️ 为保障你的账号安全与课程版权，请避免在不同 WiFi 环境下同时登录，以免触发平台安全风控机制，影响观看体验。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧ CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <h2>📢 立即行动，拿下代码题高分</h2>
+    <p>选择适合你的方式，开启高效备考</p>
+
+    <div class="cta-steps">
+      <div class="cta-step">
+        <div class="step-title">🎁 免费领取</div>
+        <p>B 站最新视频完成「三连 + 关注」，私信截图即可直接领取基础 63 题</p>
+        <a href="#free" class="btn-primary" style="font-size:13px; padding:9px 18px;">去免费领取 →</a>
+      </div>
+      <div class="cta-step">
+        <div class="step-title">💳 解锁优惠价</div>
+        <p>B 站对应课程视频完成「三连 + 关注」，私信截图即可获取专属优惠下单链接</p>
+        <a href="#pricing" class="btn-primary" style="font-size:13px; padding:9px 18px;">查看课程 →</a>
+      </div>
+    </div>
+
+    <div class="guarantee">
+      ✅ &nbsp;课程支持 <strong>1 节免费试看</strong>，试看不满意可全额退款，零风险入手
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>计算机考研代码课程 · 北航学长出品 · 助你高效上岸</p>
+  <p style="margin-top:6px;">如有疑问请通过 B 站私信联系</p>
+</footer>
+
+<!-- 底部悬浮栏 -->
+<div class="sticky-bar">
+  <div>
+    <div class="sticky-text">🎁 免费基础 63 题</div>
+    <div class="sticky-sub">B站三连+关注即可领取</div>
+  </div>
+  <a href="#pricing" class="sticky-btn">查看课程价格</a>
+</div>
+
+<!-- 平滑滚动 -->
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
