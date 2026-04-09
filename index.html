@@ -420,6 +420,13 @@
       left: 0;
       font-weight: 700;
     }
+    .price-features li.li-no {
+      color: #9AA09D;
+    }
+    .price-features li.li-no::before {
+      content: "✗";
+      color: #C0A8A8;
+    }
 
     /* ===== BENEFITS ===== */
     .benefits-section { background: var(--bg); }
@@ -697,6 +704,160 @@
       margin: 12px auto 0;
     }
 
+    /* ===== FREE+PRICING SIDE BY SIDE ===== */
+    .free-pricing-section { background: var(--bg); }
+    .free-pricing-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .free-pricing-wrap { grid-template-columns: 1fr; }
+    }
+    .free-col-title, .pricing-col-title {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ===== ABOUT PAGE ===== */
+    .about-page { padding: 56px 0 80px; }
+    .about-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      border: 1.5px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+    .about-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .about-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+    .about-card p:last-child { margin-bottom: 0; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    @media (max-width: 480px) {
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+    .about-stat {
+      text-align: center;
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 16px 10px;
+    }
+    .about-stat .num {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+    }
+    .about-stat .label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+    .about-contact {
+      background: var(--primary-bg);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    .about-contact strong { color: var(--primary); }
+
+    /* ===== UPGRADE SECTION ===== */
+    .upgrade-section { background: var(--bg); }
+
+    .upgrade-banner {
+      background: linear-gradient(135deg, #1A3028, #2A5C45);
+      border-radius: var(--radius);
+      padding: 20px 28px;
+      color: white;
+      margin-bottom: 28px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .upgrade-banner strong { color: #C8E6A0; }
+
+    .upgrade-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .upgrade-item {
+      background: white;
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      border: 1.5px solid var(--border);
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .upgrade-item:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--primary-light);
+    }
+
+    .upgrade-num {
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      min-width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .upgrade-content h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .upgrade-content h4 .upgrade-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+      background: #EBF3F0;
+      color: #1E5C40;
+    }
+    .upgrade-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
     /* ===== TRIAL PAGE ===== */
     .trial-page {
       min-height: 60vh;
@@ -933,12 +1094,13 @@
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar">
   <div class="navbar-inner">
-    <div class="navbar-brand">📚 考研代码课</div>
+    <div class="navbar-brand">📚 考研数据结构代码课</div>
     <div class="navbar-links">
       <button class="nav-link active" onclick="showPage('home', this)">首页</button>
       <a class="nav-link" href="https://www.bilibili.com/video/BV1bNgQzTEBw/" target="_blank" rel="noopener">试听课</a>
       <button class="nav-link" onclick="showPage('docs', this)">文档案例</button>
       <button class="nav-link" onclick="showPage('reviews', this)">学员好评</button>
+      <button class="nav-link" onclick="showPage('about', this)">我的介绍</button>
     </div>
   </div>
 </nav>
@@ -949,18 +1111,11 @@
   <!-- ① HERO -->
   <section class="hero">
     <div class="container">
-      <div class="badge">👨‍🏫 北理工高分学长出品 · 7年考研代码辅导经验</div>
-      <h1>计算机考研代码题，<br><span>不用再死磕题库了！</span></h1>
+      <div class="badge">👨‍🏫 北理工高分学长出品 · 6年考研代码辅导经验</div>
+      <h1>考研数据结构代码题<br><span>包含自命题和408两个版本</span></h1>
       <p class="subtitle">
-        没时间刷完全部代码？抓不住考试重点？暴力解拿不到满分？<br>
-        一套课程全解决，帮你用<strong>最少的时间</strong>，拿满代码题分数。
+        帮你用最少的时间，拿满代码题分数。
       </p>
-      <div class="pain-list">
-        <span class="pain-tag">😰 刷题没有方向</span>
-        <span class="pain-tag">📚 王道代码量太大</span>
-        <span class="pain-tag">✍️ 暴力解失分严重</span>
-        <span class="pain-tag">🏫 自命题找不到重点</span>
-      </div>
       <div class="hero-cta">
         <a href="#pricing" class="btn-primary">查看课程价格</a>
         <a href="#free" class="btn-secondary">🎁 免费领取 63 题</a>
@@ -972,22 +1127,21 @@
   <section class="value-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">核心差异化价值</span>
-        <h2>为什么这套课能帮你告别无效刷题？</h2>
+        <h2>课程优势</h2>
         <div class="divider"></div>
       </div>
       <div class="value-intro">
-        ✅ 我们已把<strong>王道课后核心考点</strong>、<strong>408 近 17 年（09-25）真题代码</strong>、<strong>自命题院校高频考点</strong>，全部浓缩打磨成必考重点库。每道题配套「保底暴力得分解 + 考场满分最优解」双版本讲解，不用大海捞针，只学考场会考的内容。
+        ✅ 本人将<strong>天勤、王道和竟成</strong>书上的核心代码、<strong>408代码真题（09-26）</strong>和大量<strong>自命题院校真题（如重邮、新大等）</strong>，
+        全部浓缩打磨成必考重点库。每道题都配套<strong>「保底暴力解 + 满分最优解」</strong>双版本讲解。能掌握我这些，就无需再看其他代码了
       </div>
       <div class="value-cards">
         <div class="value-card">
           <span class="card-badge badge-408">📝 408 统考考生专属</span>
           <h3>吃透真题，掌握满分逻辑</h3>
           <ul>
-            <li>覆盖 408 近 17 年全部代码题型</li>
-            <li>每题配套暴力得分解 + 满分最优解</li>
-            <li>配套 15 道年度专属预测题</li>
-            <li>贴合统考阅卷标准，直接对标答题规范</li>
+            <li>覆盖408近18年全部代码真题</li>
+            <li>三段式（思路、代码和复杂度）完美适配408</li>
+            <li>精选60个重点代码，以最短时间学完</li>
           </ul>
         </div>
         <div class="value-card">
@@ -996,107 +1150,160 @@
           <ul>
             <li>分院校定制重点代码库</li>
             <li>重邮 / 新大 / 湖大额外赠专属真题讲解</li>
-            <li>59 个核心必考代码精准勾画</li>
-            <li>自命题考点覆盖率 100%</li>
+            <li>考到我资料中原题的概率超90%</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ③ FREE -->
-  <section class="free-section" id="free">
+  <!-- ③ UPGRADE 27版本升级 -->
+  <section class="upgrade-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">零门槛体验</span>
-        <h2>先免费领取，再决定要不要买</h2>
+        <span class="section-tag">27版本全面升级</span>
+        <h2>27版相比25、26版，更新了什么？</h2>
         <div class="divider"></div>
       </div>
-      <div class="free-card">
-        <div class="free-icon">🎁</div>
-        <h3>免费基础 63 题</h3>
-        <p>计算机考研代码基础核心题目，打牢基础、提前感受课程质量，无任何门槛</p>
-        <div class="free-steps">
-          <div class="step">
-            <span class="step-num">1</span>
-            <span>前往 B 站，找到本课程最新视频</span>
-          </div>
-          <div class="step">
-            <span class="step-num">2</span>
-            <span>完成「三连 + 关注」操作</span>
-          </div>
-          <div class="step">
-            <span class="step-num">3</span>
-            <span>截图私信，即可直接领取资料</span>
+
+      <div class="upgrade-banner">
+        大家最关心的问题 —— <strong>27版数据结构代码课会更新哪些内容？</strong><br>
+        以下是本次版本的 4 大核心升级，每一项都是根据往届学员反馈针对性改进。
+      </div>
+
+      <div class="upgrade-list">
+
+        <div class="upgrade-item">
+          <div class="upgrade-num">1</div>
+          <div class="upgrade-content">
+            <h4>视频全部重新录制 <span class="upgrade-tag">全面升级</span></h4>
+            <p>旧版（25和26）视频个别题目存在歧义和表达不清楚的问题。此外，经过这几年的考研辅导，我更了解了大家在看视频时容易遇到的困惑，新版视频会格外强调这些易错点，更方便大家理解掌握。</p>
           </div>
         </div>
+
+        <div class="upgrade-item">
+          <div class="upgrade-num">2</div>
+          <div class="upgrade-content">
+            <h4>新增视频手写笔记 <span class="upgrade-tag">新增</span></h4>
+            <p>旧版视频没有保存课上的手写笔记，很多同学用平板学习时一直有需求。27版会为每节视频制作配套手写笔记并分享，方便平时随时复习。</p>
+          </div>
+        </div>
+
+        <div class="upgrade-item">
+          <div class="upgrade-num">3</div>
+          <div class="upgrade-content">
+            <h4>题目全面升级 <span class="upgrade-tag">重点改进</span></h4>
+            <p>对 408 和自命题的代码课程进行更细致区分；新增高质量综合性题目，去除偏题怪题及考试概率极低的题目；为每道题附上<strong>难度标注 + 考频分析</strong>，帮助大家高效分配复习时间。</p>
+          </div>
+        </div>
+
+        <div class="upgrade-item">
+          <div class="upgrade-num">4</div>
+          <div class="upgrade-content">
+            <h4>新增上机 OJ 平台 <span class="upgrade-tag">全新功能</span></h4>
+            <p>新增在线 OJ 平台，方便大家随时验证自己写的代码是否正确，告别手动调试的烦恼，学完即可上机自测，学习闭环更完整。</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ④ PRICING -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
+  <!-- ④ FREE + PRICING 并排 -->
+  <section class="free-pricing-section" id="free">
+    <div class="container" style="padding-top:56px; padding-bottom:56px;">
       <div class="section-header">
-        <span class="section-tag">付费课程体系</span>
-        <h2>选择适合你的版本</h2>
+        <h2>资料获取</h2>
         <div class="divider"></div>
       </div>
-      <div class="pricing-note">
-        💡 所有付费版本优惠价，均需完成 B 站对应课程视频「三连 + 关注」后私信截图解锁
-      </div>
-      <div class="pricing-grid">
 
-        <div class="price-card featured">
-          <div class="featured-label">🔥 最受欢迎</div>
-          <div class="plan-name">自命题速成版</div>
-          <div class="plan-target">适合：自命题院校考研考生</div>
-          <div class="price-row">
-            <span class="price-current">¥198</span>
-            <span class="price-original">¥238</span>
-            <span class="price-save">省40元</span>
+      <div class="free-pricing-wrap">
+
+        <!-- 左：免费 -->
+        <div id="pricing">
+          <div class="free-col-title">🎁 免费资料</div>
+          <div class="free-card" style="max-width:100%; box-shadow:none; border:1.5px solid var(--border);">
+            <div class="free-icon">🎁</div>
+            <h3>免费基础 63 题</h3>
+            <p>考研数据结构代码基础核心题目，提前感受资料质量</p>
+            <div class="free-steps">
+              <div class="step">
+                <span class="step-num">1</span>
+                <span>点击下方按钮，对该视频完成「三连 + 关注」操作</span>
+              </div>
+              <div class="step">
+                <span class="step-num">2</span>
+                <span>截图添加微信私信即可领取<br>
+                  <span style="color:var(--primary); font-weight:700; font-size:13px;">微信：Rain-Splash / bubumelody / petrichoryin</span>
+                </span>
+              </div>
+            </div>
+            <a href="https://www.bilibili.com/video/BV1bNgQzTEBw/?share_source=copy_web&vd_source=bb9c2eec6ee6ccb7f1aa762deb5f5e95"
+               target="_blank" rel="noopener"
+               class="btn-primary"
+               style="margin-top:20px; display:inline-block; font-size:14px; width:100%; text-align:center;">
+              📺 前往 B 站视频 →
+            </a>
           </div>
-          <div class="price-unlock">B 站三连解锁专属优惠价</div>
-          <ul class="price-features">
-            <li>分院校定制重点代码文档</li>
-            <li>配套讲解视频（全套）</li>
-            <li>重邮 / 新大 / 湖大专属真题</li>
-            <li>含全部 6 大赠送权益</li>
-          </ul>
         </div>
 
-        <div class="price-card">
-          <div class="plan-name">408 速成版</div>
-          <div class="plan-target">适合：408 统考考研考生</div>
-          <div class="price-row">
-            <span class="price-current">¥178</span>
-            <span class="price-original">¥198</span>
-            <span class="price-save">省20元</span>
+        <!-- 右：付费 -->
+        <div>
+          <div class="pricing-col-title">💳 付费课程</div>
+          <div class="pricing-note" style="margin-bottom:16px;">
+            💡 B 站三连 + 关注后加微信截图，即可解锁优惠价
           </div>
-          <div class="price-unlock">B 站三连解锁专属优惠价</div>
-          <ul class="price-features">
-            <li>408 统考重点代码文档</li>
-            <li>配套讲解视频（全套）</li>
-            <li>17年真题代码全覆盖</li>
-            <li>含全部 6 大赠送权益</li>
-          </ul>
-        </div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
 
-        <div class="price-card">
-          <div class="plan-name">文档精简版</div>
-          <div class="plan-target">适合：有自学能力、仅需文档的考生</div>
-          <div class="price-row">
-            <span class="price-current">¥58</span>
-            <span class="price-original">¥88</span>
-            <span class="price-save">省30元</span>
+            <div class="price-card featured" style="position:relative;">
+              <div class="featured-label">🔥 最受欢迎</div>
+              <div class="plan-name">自命题版</div>
+              <div class="plan-target">适合：自命题考生（基础薄弱）</div>
+              <div class="price-row">
+                <span class="price-current">¥238</span>
+                <span class="price-original">¥298</span>
+                <span class="price-save">省60元</span>
+              </div>
+              <ul class="price-features" style="margin-top:8px;">
+                <li>代码文档和定制自命题重点</li>
+                <li>配套讲解视频（全套）</li>
+                <li>重邮 / 新大 / 湖大专属真题</li>
+                <li>含全部 6 大赠送权益</li>
+              </ul>
+            </div>
+
+            <div class="price-card">
+              <div class="plan-name">408版</div>
+              <div class="plan-target">适合：408 考生（基础薄弱）</div>
+              <div class="price-row">
+                <span class="price-current">¥198</span>
+                <span class="price-original">¥258</span>
+                <span class="price-save">省60元</span>
+              </div>
+              <ul class="price-features" style="margin-top:8px;">
+                <li>代码文档和408重点代码</li>
+                <li>配套讲解视频（全套）</li>
+                <li>18年真题代码全覆盖</li>
+                <li>含全部 6 大赠送权益</li>
+              </ul>
+            </div>
+
+            <div class="price-card">
+              <div class="plan-name">文档版</div>
+              <div class="plan-target">适合：有代码基础、仅需文档</div>
+              <div class="price-row">
+                <span class="price-current">¥68</span>
+                <span class="price-original">¥88</span>
+                <span class="price-save">省20元</span>
+              </div>
+              <ul class="price-features" style="margin-top:8px;">
+                <li>全部代码文档</li>
+                <li class="li-no">无讲解视频（自学型）</li>
+                <li class="li-no">不含赠送权益</li>
+              </ul>
+            </div>
+
           </div>
-          <div class="price-unlock">B 站三连解锁专属优惠价</div>
-          <ul class="price-features">
-            <li>考研重点代码核心文档</li>
-            <li>无讲解视频（自学型）</li>
-            <li>59个必考重点精华版</li>
-            <li>不含赠送权益</li>
-          </ul>
         </div>
 
       </div>
@@ -1112,7 +1319,7 @@
         <div class="divider"></div>
       </div>
       <div class="benefits-gate">
-        <strong>以下权益仅适用于购买 408 速成版 或 自命题速成版的同学</strong>，总价值超 <strong>1000 元</strong>
+        <strong>以下权益仅适用于购买 408版 或 自命题版的同学</strong>，总价值超 <strong>1000 元</strong>
       </div>
       <div class="benefit-list">
 
@@ -1122,7 +1329,7 @@
             <h4>408 真题全解 + 年度预测题
               <span class="benefit-tag tag-408">408必看</span>
             </h4>
-            <p>覆盖 408 近 17 年（09-25）代码真题，每道题配套「保底暴力得分解 + 考场满分最优解」双版本讲解；新增年度 15 道代码预测题 + 配套讲解，贴合统考命题趋势，往年预测命中率超 80%。</p>
+            <p>覆盖 408 近 18 年（09-26）代码真题，每道题配套「保底暴力得分解 + 考场满分最优解」双版本讲解；新增年度 15 道代码预测题 + 配套讲解，贴合统考命题趋势，往年预测命中率超 80%。</p>
           </div>
         </div>
 
@@ -1132,7 +1339,7 @@
             <h4>分院校重点勾画 + 专属真题
               <span class="benefit-tag tag-zmt">自命题必看</span>
             </h4>
-            <p>408 / 自命题均精炼 59 个核心必考代码，时间紧张可直接只学重点；自命题分院校定制重点分析，<strong>重邮 / 新大 / 湖大</strong>额外赠送专属代码真题讲解，不复习偏、不做无用功。</p>
+            <p>408 / 自命题均精炼核心必考代码，时间紧张可直接只学重点；自命题分院校定制重点分析，<strong>重邮 / 新大 / 湖大</strong>额外赠送专属代码真题讲解，不复习偏、不做无用功。</p>
           </div>
         </div>
 
@@ -1174,55 +1381,7 @@
     </div>
   </section>
 
-  <!-- ⑥ TRUST -->
-  <section class="trust-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">信任背书</span>
-        <h2>讲师介绍 & 辅导成果</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="trust-card">
-        <h3>👨‍🏫 北理工计算机高分上岸学长</h3>
-        <p style="font-size:15px; line-height:1.8; color: #3A4A40;">
-          408 代码题满分，7 年计算机考研代码辅导经验。<br>
-          课程覆盖了王道课后核心考点、408 历年真题全部代码题型，帮你省去大量刷题、筛选重点的时间，聚焦必考内容，高效提分。
-        </p>
-        <div class="trust-stats">
-          <div class="stat-item">
-            <span class="stat-num">3000+</span>
-            <div class="stat-label">学员高分上岸</div>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">80%+</span>
-            <div class="stat-label">408预测命中率</div>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">4000+</span>
-            <div class="stat-label">26届已报名人数</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-list">
-        <div class="review-item">
-          <p>代码课真的超级有用，考场上遇到的代码题基本都在课里练过，暴力解保底、最优解冲分，策略太实用了！</p>
-          <div class="review-meta">— 24届 · 上岸985 · 408统考</div>
-        </div>
-        <div class="review-item">
-          <p>自命题院校专属真题讲解是我没想到的惊喜，院校重点覆盖得很全，完全没有复习偏！</p>
-          <div class="review-meta">— 25届 · 上岸目标院校 · 自命题</div>
-        </div>
-        <div class="review-item">
-          <p>微信群答疑非常及时，每月的直播也很实在，不是水课，感觉整个备考期都有人托底。</p>
-          <div class="review-meta">— 25届学员 · 复试上岸</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ⑦ WATCH INFO -->
+  <!-- ⑥ WATCH INFO -->
   <section class="watch-section">
     <div class="container">
       <div class="watch-card">
@@ -1261,7 +1420,7 @@
   </section>
 
   <footer>
-    <p>计算机考研代码课程 · 北理工学长出品 · 助你高效上岸</p>
+    <p>计算机考研数据结构代码课程 · 北理工学长出品 · 助你高效上岸</p>
     <p style="margin-top:6px;">如有疑问请通过 B 站私信联系</p>
   </footer>
 
@@ -1276,6 +1435,53 @@
 
 </div>
 <!-- /page-home -->
+
+
+<!-- ===== PAGE: ABOUT ===== -->
+<div id="page-about" class="page">
+  <div class="container">
+    <div class="about-page">
+
+      <div class="section-header" style="margin-bottom:28px;">
+        <span class="section-tag">我的介绍</span>
+        <h2>关于我</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="about-card">
+        <h3>👨‍🎓 个人背景</h3>
+        <p>北理工计算机专业硕士，408 代码题满分上岸，6 年计算机考研代码辅导经验。</p>
+        <p>备考期间深感市面上代码课良莠不齐，要么题量太大抓不住重点，要么讲解浅尝辄止考场用不上。因此从 25 届开始自己整理资料、录制课程，持续打磨至今。</p>
+        <p>课程覆盖天勤、王道、竟成核心代码考点，以及 408 历年真题和自命题院校高频考点，每道题配套「保底暴力解 + 满分最优解」双版本讲解，帮助大家用最少的时间拿下代码题高分。</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="num">3000+</span>
+            <div class="label">学员高分上岸</div>
+          </div>
+          <div class="about-stat">
+            <span class="num">80%+</span>
+            <div class="label">408预测命中率</div>
+          </div>
+          <div class="about-stat">
+            <span class="num">6年</span>
+            <div class="label">考研辅导经验</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <h3>📬 联系我</h3>
+        <div class="about-contact">
+          如需领取免费资料、咨询课程详情或购课，欢迎添加微信：<br>
+          <strong>Rain-Splash &nbsp;/&nbsp; bubumelody &nbsp;/&nbsp; petrichoryin</strong><br><br>
+          B 站主页搜索「<strong>我头发还多还能学</strong>」，关注后私信也可联系到我。
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- /page-about -->
 
 
 <!-- ===== PAGE: DOCS ===== -->
