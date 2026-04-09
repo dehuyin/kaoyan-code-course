@@ -695,6 +695,132 @@
     }
     .sticky-btn:hover { background: var(--primary-light); }
 
+    /* ===== BUY BUTTON ===== */
+    .btn-buy {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 0;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+    }
+    .btn-buy:hover { background: var(--primary-light); transform: translateY(-1px); }
+    .price-card.featured .btn-buy {
+      background: #3A7A5C;
+    }
+    .price-card.featured .btn-buy:hover { background: #2A5C45; }
+
+    /* ===== WECHAT MODAL ===== */
+    .wechat-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .wechat-overlay.open { display: flex; }
+    .wechat-modal {
+      background: white;
+      border-radius: 16px;
+      padding: 32px 28px 28px;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+      position: relative;
+      animation: modalIn .2s ease;
+    }
+    @keyframes modalIn {
+      from { opacity:0; transform: scale(.94) translateY(10px); }
+      to   { opacity:1; transform: scale(1)  translateY(0); }
+    }
+    .wechat-modal .modal-close {
+      position: absolute;
+      top: 14px; right: 18px;
+      font-size: 22px;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+    }
+    .wechat-modal .modal-close:hover { color: var(--text); }
+    .wechat-modal h3 {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .wechat-modal .modal-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .wechat-modal .modal-plan {
+      display: inline-block;
+      background: var(--primary-bg);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+    .wechat-ids {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .wechat-id-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 14px;
+      gap: 10px;
+      transition: border-color .15s;
+    }
+    .wechat-id-row:hover { border-color: var(--primary-light); }
+    .wechat-id-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-all;
+    }
+    .copy-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background .15s;
+    }
+    .copy-btn:hover { background: var(--primary-light); }
+    .copy-btn.copied {
+      background: var(--green);
+    }
+    .wechat-modal .modal-tip {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.7;
+    }
+
     /* ===== DIVIDER ===== */
     .divider {
       width: 48px;
@@ -1127,7 +1253,6 @@
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar">
   <div class="navbar-inner">
-    <div class="navbar-brand">📚 考研数据结构代码课</div>
     <div class="navbar-links">
       <button class="nav-link active" onclick="showPage('home', this)">首页</button>
       <a class="nav-link" href="https://www.bilibili.com/video/BV1bNgQzTEBw/" target="_blank" rel="noopener">试听课</a>
@@ -1144,14 +1269,11 @@
   <!-- ① HERO -->
   <section class="hero">
     <div class="container">
-      <div class="badge">👨‍🏫 北理工高分学长出品 · 6年考研代码辅导经验</div>
-      <h1>考研数据结构代码题<br><span>包含自命题和408两个版本</span></h1>
-      <p class="subtitle">
-        帮你用最少的时间，拿满代码题分数。
-      </p>
+      <div class="badge">👨‍🏫 北理工高分学长出品</div>
+      <h1>27考研数据结构代码课程<br></h1>
       <div class="hero-cta">
-        <a href="#pricing" class="btn-primary">查看课程价格</a>
-        <a href="#free" class="btn-secondary">🎁 免费领取 63 题</a>
+        <a href="#free" class="btn-secondary">🎁 免费领取基础题</a>
+        <a href="#pricing" class="btn-primary">课程版本和价格</a>
       </div>
     </div>
   </section>
@@ -1164,13 +1286,12 @@
         <div class="divider"></div>
       </div>
       <div class="value-intro">
-        ✅ 本人将<strong>天勤、王道和竟成</strong>书上的核心代码、<strong>408代码真题（09-26）</strong>和大量<strong>自命题院校真题（如重邮、新大等）</strong>，
-        全部浓缩打磨成必考重点库。每道题都配套<strong>「保底暴力解 + 满分最优解」</strong>双版本讲解。能掌握我这些，就无需再看其他代码了
+        ✅ 本人将<strong>王道和竟成</strong>书上的核心代码、<strong>408近18年代码真题</strong>和<strong>自命题院校真题（如重邮、新大等）</strong>，
+        全部浓缩成必考重点库。每道题都配套<strong>「保底暴力解 + 满分最优解」</strong>双版本讲解。掌握我这些，就无需再看其他代码了
       </div>
       <div class="value-cards">
         <div class="value-card">
           <span class="card-badge badge-408">📝 408 统考考生专属</span>
-          <h3>吃透真题，掌握满分逻辑</h3>
           <ul>
             <li>覆盖408近18年全部代码真题</li>
             <li>三段式（思路、代码和复杂度）完美适配408</li>
@@ -1179,7 +1300,6 @@
         </div>
         <div class="value-card">
           <span class="card-badge badge-zmt">🏫 自命题考生专属</span>
-          <h3>分院校定制，不复习偏</h3>
           <ul>
             <li>分院校定制重点代码库</li>
             <li>重邮 / 新大 / 湖大额外赠专属真题讲解</li>
@@ -1194,14 +1314,8 @@
   <section class="upgrade-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">27版本全面升级</span>
         <h2>27版相比25、26版，更新了什么？</h2>
         <div class="divider"></div>
-      </div>
-
-      <div class="upgrade-banner">
-        大家最关心的问题 —— <strong>27版数据结构代码课会更新哪些内容？</strong><br>
-        以下是本次版本的 4 大核心升级，每一项都是根据往届学员反馈针对性改进。
       </div>
 
       <div class="upgrade-list">
@@ -1210,7 +1324,7 @@
           <div class="upgrade-num">1</div>
           <div class="upgrade-content">
             <h4>视频全部重新录制 <span class="upgrade-tag">全面升级</span></h4>
-            <p>旧版（25和26）视频个别题目存在歧义和表达不清楚的问题。此外，经过这几年的考研辅导，我更了解了大家在看视频时容易遇到的困惑，新版视频会格外强调这些易错点，更方便大家理解掌握。</p>
+            <p>旧版视频个别题目存在歧义和表达不清楚的问题。此外，经过这几年的考研辅导，我更了解了大家平时会遇到的困惑，新版视频会格外强调这些难点</p>
           </div>
         </div>
 
@@ -1234,7 +1348,7 @@
           <div class="upgrade-num">4</div>
           <div class="upgrade-content">
             <h4>新增上机 OJ 平台 <span class="upgrade-tag">全新功能</span></h4>
-            <p>新增在线 OJ 平台，方便大家随时验证自己写的代码是否正确，告别手动调试的烦恼，学完即可上机自测，学习闭环更完整。</p>
+            <p>新增在线 OJ 平台，方便大家随时验证自己写的代码是否正确，告别手动调试的麻烦</p>
           </div>
         </div>
 
@@ -1246,14 +1360,12 @@
   <section class="free-section" id="free">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">零门槛体验</span>
-        <h2>先免费领取，再决定要不要买</h2>
+        <h2>免费资料</h2>
         <div class="divider"></div>
       </div>
       <div class="free-card">
         <div class="free-icon">🎁</div>
-        <h3>免费基础 63 题</h3>
-        <p>考研数据结构代码基础核心题目，提前感受资料质量</p>
+        <h3>数据结构代码基础题</h3>
         <div class="free-steps">
           <div class="step">
             <span class="step-num">1</span>
@@ -1280,8 +1392,7 @@
   <section class="pricing-section" id="pricing">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">付费课程体系</span>
-        <h2>选择适合你的版本</h2>
+        <h2>付费课程</h2>
         <div class="divider"></div>
       </div>
       <div class="pricing-note">
@@ -1305,6 +1416,7 @@
             <li>重邮 / 新大 / 湖大专属真题</li>
             <li>含全部 6 大赠送权益</li>
           </ul>
+          <button class="btn-buy" onclick="openWechat('自命题版 ¥238')">💬 联系购买</button>
         </div>
 
         <div class="price-card">
@@ -1322,6 +1434,7 @@
             <li>18年真题代码全覆盖</li>
             <li>含全部 6 大赠送权益</li>
           </ul>
+          <button class="btn-buy" onclick="openWechat('408版 ¥198')">💬 联系购买</button>
         </div>
 
         <div class="price-card">
@@ -1338,6 +1451,7 @@
             <li class="li-no">无讲解视频（自学型）</li>
             <li class="li-no">不含赠送权益</li>
           </ul>
+          <button class="btn-buy" onclick="openWechat('文档版 ¥68')">💬 联系购买</button>
         </div>
 
       </div>
@@ -1348,22 +1462,21 @@
   <section class="benefits-section" id="benefits">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">赠送权益</span>
-        <h2>购课即享 6 大专属权益</h2>
+        <h2>赠送权益</h2>
         <div class="divider"></div>
       </div>
       <div class="benefits-gate">
-        <strong>以下权益仅适用于购买 408版 或 自命题版的同学</strong>，总价值超 <strong>1000 元</strong>
+        <strong>以下权益仅适用于购买 408版 或 自命题版的同学</strong>
       </div>
       <div class="benefit-list">
 
         <div class="benefit-item">
           <div class="benefit-icon">📋</div>
           <div class="benefit-content">
-            <h4>408 真题全解 + 年度预测题
+            <h4>408 重点代码勾画 + 模拟卷
               <span class="benefit-tag tag-408">408必看</span>
             </h4>
-            <p>覆盖 408 近 18 年（09-26）代码真题，每道题配套「保底暴力得分解 + 考场满分最优解」双版本讲解；新增年度 15 道代码预测题 + 配套讲解，贴合统考命题趋势，往年预测命中率超 80%。</p>
+            <p>根据最近408出题形式，从海量代码题目中勾画精选出重点60题，节省408考生代码复习时间。此外，赠送两套408全科模拟卷，由北航学长倾心制作。</p>
           </div>
         </div>
 
@@ -1373,7 +1486,7 @@
             <h4>分院校重点勾画 + 专属真题
               <span class="benefit-tag tag-zmt">自命题必看</span>
             </h4>
-            <p>408 / 自命题均精炼核心必考代码，时间紧张可直接只学重点；自命题分院校定制重点分析，<strong>重邮 / 新大 / 湖大</strong>额外赠送专属代码真题讲解，不复习偏、不做无用功。</p>
+            <p>自命题分院校定制不同重点分析，<strong>重邮 / 新大 / 湖大</strong>额外赠送专属代码真题讲解，不复习偏、不做无用功。</p>
           </div>
         </div>
 
@@ -1381,15 +1494,17 @@
           <div class="benefit-icon">💬</div>
           <div class="benefit-content">
             <h4>全年微信群答疑 + 每月直播带学</h4>
-            <p>每月 4 次集体直播答疑，群内实时解答代码问题；免费分享考研初试 + 复试全阶段资料，整个备考期都有人陪跑。</p>
+            <p>定期腾讯会议直播答疑，微信群内实时解答代码问题，整个备考期都有人陪跑。</p>
           </div>
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-icon">💻</div>
+          <div class="benefit-icon">📖</div>
           <div class="benefit-content">
-            <h4>上机代码实操教学视频</h4>
-            <p>手把手教你代码验证方法，初试可自测答案对错，复试上机直接能用，一举两得。</p>
+            <h4>免费分享考研全阶段资料
+              <span class="benefit-tag tag-value">价值 ¥398</span>
+            </h4> 
+            <p>包含公共课电子资料，如英语作文模板、政治背诵笔记，全部由<strong>本人精心筛选，确保资料高质量</strong></p>
           </div>
         </div>
 
@@ -1397,17 +1512,9 @@
           <div class="benefit-icon">📄</div>
           <div class="benefit-content">
             <h4>1 次一对一复试简历修改
-              <span class="benefit-tag tag-value">价值 ¥128</span>
+              <span class="benefit-tag tag-value">价值 ¥98</span>
             </h4>
-            <p>学长一对一精修复试简历 + 导师联系邮件指导，复试通关加分，单独购买需 128 元 / 次，购课直接赠送。</p>
-          </div>
-        </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">📝</div>
-          <div class="benefit-content">
-            <h4>408 高分模拟卷 2 套</h4>
-            <p>北理工高分学长原创 408 模拟卷 + 全套答案解析，贴合统考难度，考前模考查漏补缺，精准定位薄弱点。</p>
+            <p>学长一对一修改复试简历 + 导师联系邮件指导，复试通关加分，单独购买需 88 元 / 次，购课直接赠送。</p>
           </div>
         </div>
 
@@ -1421,10 +1528,10 @@
       <div class="watch-card">
         <h3>📺 课程观看说明</h3>
         <p>
-          课程全程在 <strong>ClassIn 官方平台</strong>观看，支持同一 WiFi 环境下电脑、平板、手机<strong>多设备同时登录</strong>，灵活学习不受限。
+          课程全程在 <strong>ClassIn 官方平台</strong>观看，支持同一 WiFi 环境下电脑、平板、手机<strong>多设备登录</strong>。
         </p>
         <div class="tip">
-          ⚠️ 为保障你的账号安全与课程版权，请避免在不同 WiFi 环境下同时登录，以免触发平台安全风控机制，影响观看体验。
+          ⚠️ 为保障你的账号安全与课程版权，请避免在不同 WiFi 环境下同时登录，以免触发平台风控，严重还会封号。
         </div>
       </div>
     </div>
@@ -1437,18 +1544,13 @@
       <p>选择适合你的方式，开启高效备考</p>
       <div class="cta-steps">
         <div class="cta-step">
-          <div class="step-title">🎁 免费领取</div>
-          <p>B 站最新视频完成「三连 + 关注」，私信截图即可直接领取基础 63 题</p>
-          <a href="#free" class="btn-primary" style="font-size:13px; padding:9px 18px;">去免费领取 →</a>
+          <div class="step-title">免费领取基础题</div>
+          <a href="#free" class="btn-primary" style="font-size:13px; padding:9px 18px;">免费领取 →</a>
         </div>
         <div class="cta-step">
-          <div class="step-title">💳 解锁优惠价</div>
-          <p>B 站对应课程视频完成「三连 + 关注」，私信截图即可获取专属优惠下单链接</p>
-          <a href="#pricing" class="btn-primary" style="font-size:13px; padding:9px 18px;">查看课程 →</a>
+          <div class="step-title">查看课程版本</div>
+          <a href="#pricing" class="btn-primary" style="font-size:13px; padding:9px 18px;">选择课程 →</a>
         </div>
-      </div>
-      <div class="guarantee">
-        ✅ &nbsp;课程支持 <strong>1 节免费试看</strong>，试看不满意可全额退款，零风险入手
       </div>
     </div>
   </section>
@@ -1688,14 +1790,10 @@
 <script>
   /* ===== PAGE SWITCHING ===== */
   function showPage(pageId, btn) {
-    // hide all pages
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    // show target page
     document.getElementById('page-' + pageId).classList.add('active');
-    // update nav active state (only for button nav items)
     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
     if (btn) btn.classList.add('active');
-    // scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -1708,6 +1806,52 @@
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
+  });
+
+  /* ===== WECHAT MODAL ===== */
+  const WECHAT_IDS = ['Rain-Splash', 'bubumelody', 'petrichoryin'];
+
+  function openWechat(planName) {
+    document.getElementById('modal-plan-name').textContent = planName;
+    document.getElementById('wechat-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeWechat() {
+    document.getElementById('wechat-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function copyId(btn, id) {
+    navigator.clipboard.writeText(id).then(() => {
+      const original = btn.textContent;
+      btn.textContent = '已复制 ✓';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(() => {
+      // 兜底：选中文字
+      const range = document.createRange();
+      const span = btn.previousElementSibling;
+      range.selectNode(span);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+    });
+  }
+
+  // 点遮罩关闭
+  document.getElementById('wechat-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeWechat();
+  });
+
+  // ESC 关闭
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeWechat();
+      closeLightbox();
+      closeReviewLightbox();
+    }
   });
 
   /* ===== LIGHTBOX: DOCS ===== */
@@ -1740,6 +1884,31 @@
     }
   });
 </script>
+
+<!-- ===== WECHAT MODAL ===== -->
+<div class="wechat-overlay" id="wechat-overlay">
+  <div class="wechat-modal">
+    <button class="modal-close" onclick="closeWechat()">×</button>
+    <h3>💬 添加微信联系购买</h3>
+    <p class="modal-sub">点击复制微信号，添加后告知即可下单</p>
+    <div class="modal-plan" id="modal-plan-name"></div>
+    <div class="wechat-ids">
+      <div class="wechat-id-row">
+        <span class="wechat-id-text">Rain-Splash</span>
+        <button class="copy-btn" onclick="copyId(this, 'Rain-Splash')">复制</button>
+      </div>
+      <div class="wechat-id-row">
+        <span class="wechat-id-text">bubumelody</span>
+        <button class="copy-btn" onclick="copyId(this, 'bubumelody')">复制</button>
+      </div>
+      <div class="wechat-id-row">
+        <span class="wechat-id-text">petrichoryin</span>
+        <button class="copy-btn" onclick="copyId(this, 'petrichoryin')">复制</button>
+      </div>
+    </div>
+    <p class="modal-tip">复制任意一个微信号添加即可</p>
+  </div>
+</div>
 
 </body>
 </html>
