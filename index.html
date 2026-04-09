@@ -1273,7 +1273,7 @@
       <h1>27考研数据结构代码课程<br></h1>
       <div class="hero-cta">
         <a href="#free" class="btn-secondary">🎁 免费领取基础题</a>
-        <a href="#pricing" class="btn-primary">课程版本和价格</a>
+        <a href="#pricing" class="btn-primary">📺 课程版本和价格</a>
       </div>
     </div>
   </section>
@@ -1373,15 +1373,14 @@
           </div>
           <div class="step">
             <span class="step-num">2</span>
-            <span>截图添加微信私信即可领取<br>
-              <span style="color:var(--primary); font-weight:700; font-size:13px;">微信：Rain-Splash / bubumelody / petrichoryin</span>
-            </span>
+            <span>添加微信后，私信即可领取</span>
           </div>
         </div>
+        <button class="btn-buy" style="margin-top:6px;" onclick="openWechat('添加微信，免费领取基础题')">💬 复制微信号</button>
         <a href="https://www.bilibili.com/video/BV1bNgQzTEBw/?share_source=copy_web&vd_source=bb9c2eec6ee6ccb7f1aa762deb5f5e95"
            target="_blank" rel="noopener"
            class="btn-primary"
-           style="margin-top:22px; display:block; font-size:15px; text-align:center;">
+           style="margin-top:10px; display:block; font-size:15px; text-align:center;">
           📺 前往 B 站视频 →
         </a>
       </div>
@@ -1401,7 +1400,6 @@
       <div class="pricing-grid">
 
         <div class="price-card featured">
-          <div class="featured-label">🔥 最受欢迎</div>
           <div class="plan-name">自命题版</div>
           <div class="plan-target">适合：自命题考生（基础薄弱）</div>
           <div class="price-row">
@@ -1416,7 +1414,6 @@
             <li>重邮 / 新大 / 湖大专属真题</li>
             <li>含全部 6 大赠送权益</li>
           </ul>
-          <button class="btn-buy" onclick="openWechat('自命题版 ¥238')">💬 联系购买</button>
         </div>
 
         <div class="price-card">
@@ -1434,7 +1431,6 @@
             <li>18年真题代码全覆盖</li>
             <li>含全部 6 大赠送权益</li>
           </ul>
-          <button class="btn-buy" onclick="openWechat('408版 ¥198')">💬 联系购买</button>
         </div>
 
         <div class="price-card">
@@ -1451,10 +1447,14 @@
             <li class="li-no">无讲解视频（自学型）</li>
             <li class="li-no">不含赠送权益</li>
           </ul>
-          <button class="btn-buy" onclick="openWechat('文档版 ¥68')">💬 联系购买</button>
         </div>
 
       </div>
+
+      <div style="text-align:center; margin-top:28px;">
+        <button class="btn-primary" style="font-size:16px; padding:14px 48px;" onclick="openWechat('付费课程')">💬 联系购买</button>
+      </div>
+
     </div>
   </section>
 
@@ -1560,14 +1560,7 @@
     <p style="margin-top:6px;">如有疑问请通过 B 站私信联系</p>
   </footer>
 
-  <!-- 底部悬浮栏 -->
-  <div class="sticky-bar">
-    <div>
-      <div class="sticky-text">🎁 免费基础 63 题</div>
-      <div class="sticky-sub">B站三连+关注即可领取</div>
-    </div>
-    <a href="#pricing" class="sticky-btn">查看课程价格</a>
-  </div>
+
 
 </div>
 <!-- /page-home -->
@@ -1579,16 +1572,15 @@
     <div class="about-page">
 
       <div class="section-header" style="margin-bottom:28px;">
-        <span class="section-tag">我的介绍</span>
+        <img src="images/about/photo.jpg" alt="发哥照片" style="width:100px;height:100px;border-radius:50%;object-fit:cover;display:block;margin:16px auto 8px;border:3px solid var(--primary);" />
         <h2>关于我</h2>
         <div class="divider"></div>
       </div>
 
       <div class="about-card">
-        <h3>👨‍🎓 个人背景</h3>
-        <p>北理工计算机专业硕士，408 代码题满分上岸，6 年计算机考研代码辅导经验。</p>
-        <p>备考期间深感市面上代码课良莠不齐，要么题量太大抓不住重点，要么讲解浅尝辄止考场用不上。因此从 25 届开始自己整理资料、录制课程，持续打磨至今。</p>
-        <p>课程覆盖天勤、王道、竟成核心代码考点，以及 408 历年真题和自命题院校高频考点，每道题配套「保底暴力解 + 满分最优解」双版本讲解，帮助大家用最少的时间拿下代码题高分。</p>
+        <h3>👨‍🎓 我是谁？</h3>
+        <p>本科就读于<strong>华东理工大学资源循环科学与工程专业</strong>（化工方向），大三时偶然看到一篇知乎文章——化工专业的同学跨专业考研计算机，经历了什么——深受触动，于是下定决心转换赛道，备考计算机研究生。</p>
+        <p>最初目标院校是<strong>北京邮电大学</strong>，准备了大半年后，在一次偶然的机会下改选了<strong>北京理工大学</strong>。虽然临时换了目标，但备考节奏没有乱，最终顺利上岸北理工计算机专业。</p>
         <div class="about-stats">
           <div class="about-stat">
             <span class="num">3000+</span>
@@ -1596,13 +1588,30 @@
           </div>
           <div class="about-stat">
             <span class="num">80%+</span>
-            <div class="label">408预测命中率</div>
+            <div class="label">代码预测命中率</div>
           </div>
           <div class="about-stat">
             <span class="num">6年</span>
             <div class="label">考研辅导经验</div>
           </div>
         </div>
+      </div>
+
+      <div class="about-card">
+        <h3>📝 备考流水账</h3>
+        <p><strong>数学（120分）：</strong>模拟阶段多次 130+，结果考场上遇到了 20 年数学二线性代数大题，之前根本没见过，硬着头皮写出了大部分，但最后对答案发现错的是一道很基础的微分方程——偏偏还是李林 6 套卷的原题（内心一群草泥马狂奔）。<strong>引以为戒：不要迷信押题和刷题，复盘复盘复盘！</strong></p>
+        <p><strong>政治（69分）：</strong>把肖的 1000 题和 8+4 刷完就够了，没看什么选择技巧课（主要是当时沉迷数学刷题）。</p>
+        <p><strong>英语一（72分）：</strong>看了好多老师的阅读技巧课，最后感觉都是封建迷信。拿着答案讲技巧都是耍流氓，还是踏踏实实背单词，考场上老老实实把文章看完再写答案最稳妥。学了那么多技巧考场上也不一定敢用，反而打乱理解原文的思路，导致两个选项犹豫不决。</p>
+        <p><strong>专业课（136分）：</strong>写了 1 小时就搞定，开始检查，发现一堆错误——还好大题是先用铅笔写的，不然就 G 了。</p>
+        <p><strong>考前那晚：</strong>考前一晚上基本没睡着，差不多 4 点才睡、6 点起床准备，但其实一点也不影响第二天状态。考完英语回酒店直接睡到凌晨 3 点，然后又焦虑睡不着了。第二天考数学依旧精神百倍，但题目是真的恶心，边写边抖，心里已经在想考不上可咋办……不过最后也没发挥很差。<strong>所以考试中途一定不要放弃，坚持到最后一科——你觉得题目难，大家也会难，出题老师又不是专门针对你的。</strong></p>
+      </div>
+
+      <div class="about-card">
+        <h3>🎓 复试经历</h3>
+        <p>复试赶上疫情，线上进行，也没有上机。北理工是<strong>7 选 4 + PPT 自我介绍</strong>，我选了离散数学、操作系统、计算机网络和数据库，老师问的问题基本都回答上了，只有一个关于笛卡尔积的没有回答完整，老师还补充提问了一次。</p>
+        <p>PPT 自我介绍真是三无简历，就介绍了一下本科期间学过的与计算机相关的科目。老师们都很 nice，没有歧视跨考生，问我写过最长的代码是多少行，我说 200 行（现在想想真是老实）。</p>
+        <p>后来我问导师，他说其实很喜欢招跨考的学生——因为这些学生学习能力很强，研究生乃至之后工作基本都靠自学，<strong>学习能力比知识储量重要得多</strong>，而考研本身就是在锻炼这种能力。</p>
+        <p style="margin-top:16px; padding:14px 16px; background:var(--primary-bg); border-radius:8px; border-left:3px solid var(--primary);">差不多流水账就到这里，谢谢你看到最后。也祝你考研期间顺顺利利，保持好的心态，身体棒棒的，27 年来给我报喜：<strong>「发哥，我上岸了！」</strong>😄</p>
       </div>
 
       <div class="about-card">
@@ -1638,64 +1647,45 @@
       </div>
 
       <div class="docs-grid" id="docs-grid">
-        <!-- 占位卡片，后续替换为真实截图 -->
         <div class="doc-item" onclick="openLightbox(this)">
           <div class="doc-img-wrap">
-            <div class="doc-img-placeholder">
-              <span class="ph-icon">📄</span>
-              <span>图片待上传</span>
-            </div>
+            <img src="images/docs/doc1.png" alt="课程文档示例1" loading="lazy" />
           </div>
           <div class="doc-caption">
-            <h4>408 真题代码讲解示例</h4>
-            <p>暴力解 + 最优解双版本对比</p>
+            <h4>课程文档示例</h4>
+            <p>点击放大查看</p>
           </div>
         </div>
 
         <div class="doc-item" onclick="openLightbox(this)">
           <div class="doc-img-wrap">
-            <div class="doc-img-placeholder">
-              <span class="ph-icon">📄</span>
-              <span>图片待上传</span>
-            </div>
+            <img src="images/docs/doc2.png" alt="课程文档示例2" loading="lazy" />
           </div>
           <div class="doc-caption">
-            <h4>59 个核心重点勾画</h4>
-            <p>时间紧张直接只学重点</p>
+            <h4>课程文档示例</h4>
+            <p>点击放大查看</p>
           </div>
         </div>
 
         <div class="doc-item" onclick="openLightbox(this)">
           <div class="doc-img-wrap">
-            <div class="doc-img-placeholder">
-              <span class="ph-icon">📄</span>
-              <span>图片待上传</span>
-            </div>
+            <img src="images/docs/doc3.png" alt="课程文档示例3" loading="lazy" />
           </div>
           <div class="doc-caption">
-            <h4>自命题院校专属考点</h4>
-            <p>分院校定制，不复习偏</p>
+            <h4>课程文档示例</h4>
+            <p>点击放大查看</p>
           </div>
         </div>
 
         <div class="doc-item" onclick="openLightbox(this)">
           <div class="doc-img-wrap">
-            <div class="doc-img-placeholder">
-              <span class="ph-icon">📄</span>
-              <span>图片待上传</span>
-            </div>
+            <img src="images/docs/doc4.png" alt="课程文档示例4" loading="lazy" />
           </div>
           <div class="doc-caption">
-            <h4>年度预测题专项</h4>
-            <p>命中率超80%，考前必看</p>
+            <h4>课程文档示例</h4>
+            <p>点击放大查看</p>
           </div>
         </div>
-      </div>
-
-      <div class="upload-hint">
-        <div class="uh-icon">📸</div>
-        <p>如需添加真实文档截图，请将图片文件放入网页同级目录，<br>
-        并将对应 <code>&lt;img&gt;</code> 标签的 <code>src</code> 路径替换为图片文件名即可。</p>
       </div>
 
     </div>
@@ -1727,52 +1717,23 @@
       </div>
 
       <div class="reviews-grid" id="reviews-grid">
-        <!-- 占位卡片，后续替换为真实截图 -->
-        <div class="review-shot" onclick="openReviewLightbox(this)">
-          <div class="shot-wrap">
-            <div class="shot-placeholder">
-              <span class="ph-icon">💬</span>
-              <span>好评截图待上传</span>
-            </div>
-          </div>
-          <div class="shot-label">微信好评 · 24届上岸学员</div>
-        </div>
-
-        <div class="review-shot" onclick="openReviewLightbox(this)">
-          <div class="shot-wrap">
-            <div class="shot-placeholder">
-              <span class="ph-icon">💬</span>
-              <span>好评截图待上传</span>
-            </div>
-          </div>
-          <div class="shot-label">B站评论 · 25届上岸学员</div>
-        </div>
-
-        <div class="review-shot" onclick="openReviewLightbox(this)">
-          <div class="shot-wrap">
-            <div class="shot-placeholder">
-              <span class="ph-icon">💬</span>
-              <span>好评截图待上传</span>
-            </div>
-          </div>
-          <div class="shot-label">微信好评 · 25届上岸学员</div>
-        </div>
-
-        <div class="review-shot" onclick="openReviewLightbox(this)">
-          <div class="shot-wrap">
-            <div class="shot-placeholder">
-              <span class="ph-icon">💬</span>
-              <span>好评截图待上传</span>
-            </div>
-          </div>
-          <div class="shot-label">微信好评 · 自命题考生上岸</div>
-        </div>
-      </div>
-
-      <div class="upload-hint">
-        <div class="uh-icon">📸</div>
-        <p>如需上传真实好评截图，将图片放入网页同级目录，<br>
-        修改对应卡片内的 <code>&lt;img src="..."&gt;</code> 路径即可显示。</p>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review1.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review2.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review3.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review4.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review5.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review6.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review7.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review8.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review9.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review10.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review11.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review12.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review13.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review14.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review15.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review16.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
+        <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review17.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
       </div>
 
     </div>
@@ -1889,8 +1850,7 @@
 <div class="wechat-overlay" id="wechat-overlay">
   <div class="wechat-modal">
     <button class="modal-close" onclick="closeWechat()">×</button>
-    <h3>💬 添加微信联系购买</h3>
-    <p class="modal-sub">点击复制微信号，添加后告知即可下单</p>
+    <h3>💬 复制任意一个微信号添加即可</h3>
     <div class="modal-plan" id="modal-plan-name"></div>
     <div class="wechat-ids">
       <div class="wechat-id-row">
@@ -1906,7 +1866,6 @@
         <button class="copy-btn" onclick="copyId(this, 'petrichoryin')">复制</button>
       </div>
     </div>
-    <p class="modal-tip">复制任意一个微信号添加即可</p>
   </div>
 </div>
 
