@@ -1082,12 +1082,29 @@
       text-align: center;
     }
     .docs-intro strong { color: var(--text); }
+    .docs-group-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0 0 14px 0;
+      padding: 8px 14px;
+      background: var(--primary-bg);
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+    }
     .docs-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 8px;
     }
-    @media (max-width: 560px) {
+    .docs-grid-2col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 640px) {
+      .docs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
       .docs-grid { grid-template-columns: 1fr; }
     }
     .doc-item {
@@ -1642,49 +1659,49 @@
       </div>
 
       <div class="docs-intro">
-        以下为课程文档部分内容展示，包含代码讲解、重点标注、院校专属考点等。
+        以下为课程文档部分内容展示，包含题目目录总览与具体答案讲解。
         点击图片可放大查看。
       </div>
 
+      <!-- 分组一：题目目录 -->
+      <div class="docs-group-title">📋 题目目录总览</div>
       <div class="docs-grid" id="docs-grid">
         <div class="doc-item" onclick="openLightbox(this)">
-          <div class="doc-img-wrap">
-            <img src="images/docs/doc1.png" alt="课程文档示例1" loading="lazy" />
-          </div>
-          <div class="doc-caption">
-            <h4>课程文档示例</h4>
-            <p>点击放大查看</p>
-          </div>
+          <div class="doc-img-wrap"><img src="images/docs/doc1.png" alt="题目目录1" loading="lazy" /></div>
+          <div class="doc-caption"><h4>题目目录</h4><p>点击放大查看</p></div>
         </div>
-
         <div class="doc-item" onclick="openLightbox(this)">
-          <div class="doc-img-wrap">
-            <img src="images/docs/doc2.png" alt="课程文档示例2" loading="lazy" />
-          </div>
-          <div class="doc-caption">
-            <h4>课程文档示例</h4>
-            <p>点击放大查看</p>
-          </div>
+          <div class="doc-img-wrap"><img src="images/docs/doc2.png" alt="题目目录2" loading="lazy" /></div>
+          <div class="doc-caption"><h4>题目目录</h4><p>点击放大查看</p></div>
         </div>
-
         <div class="doc-item" onclick="openLightbox(this)">
-          <div class="doc-img-wrap">
-            <img src="images/docs/doc3.png" alt="课程文档示例3" loading="lazy" />
-          </div>
-          <div class="doc-caption">
-            <h4>课程文档示例</h4>
-            <p>点击放大查看</p>
-          </div>
+          <div class="doc-img-wrap"><img src="images/docs/doc3.png" alt="题目目录3" loading="lazy" /></div>
+          <div class="doc-caption"><h4>题目目录</h4><p>点击放大查看</p></div>
         </div>
-
         <div class="doc-item" onclick="openLightbox(this)">
-          <div class="doc-img-wrap">
-            <img src="images/docs/doc4.png" alt="课程文档示例4" loading="lazy" />
-          </div>
-          <div class="doc-caption">
-            <h4>课程文档示例</h4>
-            <p>点击放大查看</p>
-          </div>
+          <div class="doc-img-wrap"><img src="images/docs/doc4.png" alt="题目目录4" loading="lazy" /></div>
+          <div class="doc-caption"><h4>题目目录</h4><p>点击放大查看</p></div>
+        </div>
+        <div class="doc-item" onclick="openLightbox(this)">
+          <div class="doc-img-wrap"><img src="images/docs/doc5.png" alt="题目目录5" loading="lazy" /></div>
+          <div class="doc-caption"><h4>题目目录</h4><p>点击放大查看</p></div>
+        </div>
+        <div class="doc-item" onclick="openLightbox(this)">
+          <div class="doc-img-wrap"><img src="images/docs/doc6.png" alt="题目目录6" loading="lazy" /></div>
+          <div class="doc-caption"><h4>题目目录</h4><p>点击放大查看</p></div>
+        </div>
+      </div>
+
+      <!-- 分组二：答案展示 -->
+      <div class="docs-group-title" style="margin-top:32px;">✍️ 题目答案讲解示例</div>
+      <div class="docs-grid docs-grid-2col">
+        <div class="doc-item" onclick="openLightbox(this)">
+          <div class="doc-img-wrap"><img src="images/docs/doc7.png" alt="答案示例1" loading="lazy" /></div>
+          <div class="doc-caption"><h4>答案讲解示例</h4><p>暴力解 + 最优解双版本</p></div>
+        </div>
+        <div class="doc-item" onclick="openLightbox(this)">
+          <div class="doc-img-wrap"><img src="images/docs/doc8.png" alt="答案示例2" loading="lazy" /></div>
+          <div class="doc-caption"><h4>答案讲解示例</h4><p>暴力解 + 最优解双版本</p></div>
         </div>
       </div>
 
