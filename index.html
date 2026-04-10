@@ -1589,29 +1589,21 @@
     <div class="about-page">
 
       <div class="section-header" style="margin-bottom:28px;">
-        <img src="images/about/photo.jpg" alt="发哥照片" style="width:100px;height:100px;border-radius:50%;object-fit:cover;display:block;margin:16px auto 8px;border:3px solid var(--primary);" />
+        <img src="images/about/photo.jpg" alt="发哥照片" style="width:140px;height:140px;border-radius:50%;object-fit:cover;display:block;margin:16px auto 8px;border:3px solid var(--primary);" />
         <h2>关于我</h2>
         <div class="divider"></div>
       </div>
 
       <div class="about-card">
         <h3>👨‍🎓 我是谁？</h3>
-        <p>本科就读于<strong>华东理工大学资源循环科学与工程专业</strong>（化工方向），大三时偶然看到一篇知乎文章——化工专业的同学跨专业考研计算机，经历了什么——深受触动，于是下定决心转换赛道，备考计算机研究生。</p>
-        <p>最初目标院校是<strong>北京邮电大学</strong>，准备了大半年后，在一次偶然的机会下改选了<strong>北京理工大学</strong>。虽然临时换了目标，但备考节奏没有乱，最终顺利上岸北理工计算机专业。</p>
-        <div class="about-stats">
-          <div class="about-stat">
-            <span class="num">3000+</span>
-            <div class="label">学员高分上岸</div>
-          </div>
-          <div class="about-stat">
-            <span class="num">80%+</span>
-            <div class="label">代码预测命中率</div>
-          </div>
-          <div class="about-stat">
-            <span class="num">6年</span>
-            <div class="label">考研辅导经验</div>
-          </div>
+        <p>本科就读于<strong>华东理工大学化工专业（16级）</strong>，大三时下定决心转换赛道，备考计算机研究生。最初目标院校是北京邮电大学，准备了大半年后，9月决定改选<strong>北京理工大学</strong>。虽然临时换了目标，但备考节奏没有乱，最终顺利上岸北理工计算机专业（20级）。</p>
+        <p>备考期间制作了数据结构代码题集，小范围售卖后得到众多好评。后续开始对题目录制讲解视频，从20年开始仅凭借数据结构代码课程，在b站（我头发还多还能学）收获7.5万粉丝，微信公众号收获1.2w粉丝。购买课程人数累计突破1.1w人，目前有三个微信号，累计好友人数超2.5w人</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
+          <img src="images/who/718a0a18b373a804d5748e9334c03b51.jpg" alt="相关图片1" loading="lazy" style="width:100%;border-radius:8px;object-fit:cover;cursor:pointer;" onclick="openWhoLightbox(this)" />
+          <img src="images/who/b867dd89706320b3ca955b61220d2d55.png" alt="相关图片2" loading="lazy" style="width:100%;border-radius:8px;object-fit:cover;cursor:pointer;" onclick="openWhoLightbox(this)" />
         </div>
+
       </div>
 
       <div class="about-card">
@@ -1841,6 +1833,12 @@
   }
   function closeLightbox() {
     document.getElementById('lightbox').classList.remove('open');
+  }
+
+  /* 我的介绍页图片放大 */
+  function openWhoLightbox(img) {
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox').classList.add('open');
   }
 
   /* ===== LIGHTBOX: REVIEWS ===== */
