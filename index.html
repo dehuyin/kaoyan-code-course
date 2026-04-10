@@ -318,11 +318,11 @@
       text-align: center;
       background: linear-gradient(135deg, #ff6b35, #ff4444);
       border-radius: 10px;
-      padding: 18px 24px;
-      font-size: 17px;
+      padding: 12px 20px;
+      font-size: 14px;
       color: white;
       margin-bottom: 28px;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: 0.3px;
       box-shadow: 0 4px 20px rgba(255,80,50,0.45);
       position: relative;
@@ -342,9 +342,9 @@
       transform: skewX(-20deg);
     }
     .countdown-wrap {
-      margin-top: 10px;
-      font-size: 15px;
-      font-weight: 700;
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: 500;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -353,12 +353,12 @@
     }
     .cd-block {
       display: inline-block;
-      background: rgba(255,255,255,0.28);
-      border-radius: 6px;
-      padding: 3px 10px;
-      font-size: 22px;
+      background: rgba(255,255,255,0.22);
+      border-radius: 5px;
+      padding: 1px 6px;
+      font-size: 15px;
       font-weight: 800;
-      min-width: 42px;
+      min-width: 30px;
       text-align: center;
       letter-spacing: 1px;
     }
@@ -1196,7 +1196,7 @@
     }
     /* Lightbox */
     .lightbox {
-      display: none;
+      display: flex;
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.82);
@@ -1204,13 +1204,21 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s ease;
+      will-change: opacity;
     }
-    .lightbox.open { display: flex; }
+    .lightbox.open {
+      opacity: 1;
+      visibility: visible;
+    }
     .lightbox img {
       max-width: 90vw;
       max-height: 88vh;
       border-radius: 8px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      will-change: transform;
     }
     .lightbox-close {
       position: fixed;
@@ -1453,7 +1461,7 @@
         <div class="divider"></div>
       </div>
       <div class="pricing-note">
-        🔥 预售限时特惠！5月起恢复原价，抓紧下单！
+        🔥 预售限时特惠 5月1日恢复原价！
         <div class="countdown-wrap">
           距优惠截止还剩：
           <span class="cd-block" id="cd-days">--</span>天
@@ -1645,7 +1653,10 @@
         <p>备考期间制作了数据结构代码题集，小范围售卖后得到众多好评。后续开始对题目录制讲解视频，从20年开始仅凭借数据结构代码课程，在b站（全网同名：我头发还多还能学）<strong>收获7.5万粉丝</strong>，微信公众号收获<strong>1.2万粉丝</strong>。购买课程人数累计突破1万人，目前有三个微信号，累计好友人数超2.5万人</p>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
-          <img src="images/who/718a0a18b373a804d5748e9334c03b51.jpg" alt="相关图片1" loading="lazy" style="width:100%;border-radius:8px;object-fit:cover;cursor:pointer;" onclick="openWhoLightbox(this)" />
+          <div>
+            <img src="images/who/718a0a18b373a804d5748e9334c03b51.jpg" alt="相关图片1" loading="lazy" style="width:100%;border-radius:8px;object-fit:cover;cursor:pointer;" onclick="openWhoLightbox(this)" />
+            <a href="https://b23.tv/TjqD9TU" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:8px;font-size:13px;color:var(--primary);font-weight:600;text-decoration:none;">📺 前往关注 →</a>
+          </div>
           <img src="images/who/b867dd89706320b3ca955b61220d2d55.png" alt="相关图片2" loading="lazy" style="width:100%;border-radius:8px;object-fit:cover;cursor:pointer;" onclick="openWhoLightbox(this)" />
         </div>
 
@@ -1683,6 +1694,12 @@
   </div>
 </div>
 <!-- /page-about -->
+
+<!-- Lightbox (about/who) -->
+<div class="lightbox" id="who-lightbox" onclick="closeWhoLightbox()">
+  <span class="lightbox-close" onclick="closeWhoLightbox()">×</span>
+  <img id="who-lightbox-img" src="" alt="图片放大" />
+</div>
 
 
 <!-- ===== PAGE: DOCS ===== -->
@@ -1933,10 +1950,21 @@
     document.getElementById('lightbox').classList.remove('open');
   }
 
-  /* 我的介绍页图片放大 */
+  /* 我的介绍页图片放大 — 提前预加载避免卡顿 */
+  (function preloadWhoImages() {
+    const srcs = [
+      'images/who/718a0a18b373a804d5748e9334c03b51.jpg',
+      'images/who/b867dd89706320b3ca955b61220d2d55.png'
+    ];
+    srcs.forEach(src => { const i = new Image(); i.src = src; });
+  })();
+
   function openWhoLightbox(img) {
-    document.getElementById('lightbox-img').src = img.src;
-    document.getElementById('lightbox').classList.add('open');
+    document.getElementById('who-lightbox-img').src = img.src;
+    document.getElementById('who-lightbox').classList.add('open');
+  }
+  function closeWhoLightbox() {
+    document.getElementById('who-lightbox').classList.remove('open');
   }
 
   /* ===== LIGHTBOX: REVIEWS ===== */
@@ -1954,6 +1982,7 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       closeLightbox();
+      closeWhoLightbox();
       closeReviewLightbox();
     }
   });
