@@ -6,17 +6,17 @@
   <title>计算机考研代码课程 | 北理工学长出品</title>
   <style>
     :root {
-      --primary: #2A5C45;
-      --primary-light: #3A7A5C;
-      --primary-bg: #EDF5F0;
-      --accent: #5C7A3A;
-      --accent-bg: #F2F5ED;
-      --green: #2F7A44;
-      --green-bg: #EBF5EE;
-      --text: #1E2A22;
-      --text-muted: #6B7A6F;
-      --border: #D4DDD8;
-      --bg: #F5F7F6;
+      --primary: #2D5A8E;
+      --primary-light: #3A72B5;
+      --primary-bg: #EDF2F9;
+      --accent: #3A6080;
+      --accent-bg: #EDF4F8;
+      --green: #2D5A8E;
+      --green-bg: #EDF2F9;
+      --text: #1E2530;
+      --text-muted: #6B7585;
+      --border: #D0D8E8;
+      --bg: #F5F6F8;
       --white: #FFFFFF;
       --radius: 12px;
       --shadow: 0 4px 20px rgba(0,0,0,0.07);
@@ -37,8 +37,8 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      background: #1E3028;
-      border-bottom: 1px solid #2A4035;
+      background: #1C2D42;
+      border-bottom: 1px solid #253D58;
       box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
     .navbar-inner {
@@ -1272,10 +1272,13 @@
   <div class="navbar-inner">
     <div class="navbar-links">
       <button class="nav-link active" onclick="showPage('home', this)">首页</button>
-      <a class="nav-link" href="https://www.bilibili.com/video/BV1bNgQzTEBw/" target="_blank" rel="noopener">试听课</a>
-      <button class="nav-link" onclick="showPage('docs', this)">文档案例</button>
-      <button class="nav-link" onclick="showPage('reviews', this)">学员好评</button>
-      <button class="nav-link" onclick="showPage('about', this)">我的介绍</button>
+      <button class="nav-link" onclick="showPage('about', this)">我的简介</button>
+      <button class="nav-link" onclick="showPage('docs', this)">文档样例</button>
+      <button class="nav-link" onclick="showPage('reviews', this)">学员评价</button>
+      <a class="nav-link" href="https://www.bilibili.com/video/BV1bNgQzTEBw/" target="_blank" rel="noopener">试听课链接</a>
+      
+      
+      
     </div>
   </div>
 </nav>
@@ -1416,7 +1419,7 @@
       </div>
       <div class="pricing-grid">
 
-        <div class="price-card featured">
+        <div class="price-card">
           <div class="plan-name">自命题版</div>
           <div class="plan-target">适合：自命题考生（基础薄弱）</div>
           <div class="price-row">
@@ -1717,15 +1720,11 @@
     <div class="reviews-page">
 
       <div class="section-header" style="margin-bottom:24px;">
-        <span class="section-tag">学员好评</span>
         <h2>真实学员反馈</h2>
         <p style="margin-top:8px;">来自微信、B站的真实好评截图</p>
         <div class="divider"></div>
       </div>
 
-      <div class="reviews-intro">
-        以下均为学员真实好评，未经修改。更多反馈欢迎通过 B 站私信查看。
-      </div>
 
       <div class="reviews-grid" id="reviews-grid">
         <div class="review-shot" onclick="openReviewLightbox(this)"><div class="shot-wrap"><img src="images/reviews/review1.jpg" alt="学员好评" loading="lazy" /></div><div class="shot-label">学员好评</div></div>
@@ -1766,8 +1765,23 @@
     document.getElementById('page-' + pageId).classList.add('active');
     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
     if (btn) btn.classList.add('active');
+    else {
+      // 通过 pageId 找到对应按钮激活
+      const match = document.querySelector(`.nav-link[onclick*="'${pageId}'"]`);
+      if (match) match.classList.add('active');
+    }
+    window.location.hash = pageId;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // 刷新时恢复当前页面
+  (function() {
+    const hash = window.location.hash.replace('#', '');
+    const validPages = ['home', 'docs', 'reviews', 'about'];
+    if (hash && validPages.includes(hash)) {
+      showPage(hash);
+    }
+  })();
 
   /* ===== SMOOTH SCROLL (home page anchors) ===== */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
