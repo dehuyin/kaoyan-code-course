@@ -1794,22 +1794,41 @@
   }
 
   function copyId(btn, id) {
-    navigator.clipboard.writeText(id).then(() => {
-      const original = btn.textContent;
+    const original = btn.textContent;
+    const success = () => {
       btn.textContent = '已复制 ✓';
       btn.classList.add('copied');
       setTimeout(() => {
         btn.textContent = original;
         btn.classList.remove('copied');
       }, 2000);
-    }).catch(() => {
-      // 兜底：选中文字
-      const range = document.createRange();
-      const span = btn.previousElementSibling;
-      range.selectNode(span);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-    });
+    };
+
+    // 优先用 clipboard API（现代浏览器）
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(id).then(success).catch(fallback);
+    } else {
+      fallback();
+    }
+
+    function fallback() {
+      // 兜底：创建临时 textarea，execCommand 兼容手机端
+      const ta = document.createElement('textarea');
+      ta.value = id;
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;font-size:16px;';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      ta.setSelectionRange(0, 9999); // iOS 需要
+      try {
+        document.execCommand('copy');
+        success();
+      } catch(e) {
+        btn.textContent = '请手动复制';
+        setTimeout(() => { btn.textContent = original; }, 2000);
+      }
+      document.body.removeChild(ta);
+    }
   }
 
   // 点遮罩关闭
