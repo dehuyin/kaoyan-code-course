@@ -6,17 +6,17 @@
   <title>计算机考研代码课程 | 北理工学长出品</title>
   <style>
     :root {
-      --primary: #2D5A8E;
-      --primary-light: #3A72B5;
-      --primary-bg: #EDF2F9;
-      --accent: #3A6080;
-      --accent-bg: #EDF4F8;
-      --green: #2D5A8E;
-      --green-bg: #EDF2F9;
-      --text: #1E2530;
-      --text-muted: #6B7585;
-      --border: #D0D8E8;
-      --bg: #F5F6F8;
+      --primary: #0a7a7c;
+      --primary-light: #12a0a0;
+      --primary-bg: #dff5f5;
+      --accent: #0a7a7c;
+      --accent-bg: #dff5f5;
+      --green: #0a7a7c;
+      --green-bg: #dff5f5;
+      --text: #1a2a2b;
+      --text-muted: #4a6a6b;
+      --border: #b8e0e0;
+      --bg: #f2fafa;
       --white: #FFFFFF;
       --radius: 12px;
       --shadow: 0 4px 20px rgba(0,0,0,0.07);
@@ -37,8 +37,8 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      background: #1C2D42;
-      border-bottom: 1px solid #253D58;
+      background: #003d42;
+      border-bottom: 1px solid #0a5a5c;
       box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
     .navbar-inner {
@@ -53,7 +53,7 @@
     .navbar-brand {
       font-size: 15px;
       font-weight: 700;
-      color: #D4E8DC;
+      color: #b8dede;
       letter-spacing: .3px;
       white-space: nowrap;
     }
@@ -74,8 +74,8 @@
       border: none;
       background: none;
     }
-    .nav-link:hover { color: #D4E8DC; background: rgba(255,255,255,0.07); }
-    .nav-link.active { color: #A8D8B8; background: rgba(168,216,184,0.12); font-weight: 700; }
+    .nav-link:hover { color: #b8dede; background: rgba(255,255,255,0.07); }
+    .nav-link.active { color: #7dd4d4; background: rgba(125,212,212,0.12); font-weight: 700; }
 
     /* ===== PAGE SWITCHING ===== */
     .page { display: none; }
@@ -91,7 +91,7 @@
 
     /* ===== HERO ===== */
     .hero {
-      background: linear-gradient(135deg, #1A3028 0%, #2A5C45 60%, #3A7A5C 100%);
+      background: linear-gradient(150deg, #002a2e 0%, #0a7a7c 70%, #12a0a0 100%);
       color: white;
       padding: 72px 0 64px;
       text-align: center;
@@ -113,7 +113,7 @@
       margin-bottom: 20px;
       text-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-    .hero h1 span { color: #C8E6A0; }
+    .hero h1 span { color: #a8e6e6; }
     .hero .subtitle {
       font-size: clamp(15px, 2.5vw, 18px);
       opacity: 0.88;
@@ -142,7 +142,7 @@
     }
 
     .btn-primary {
-      background: #3A7A5C;
+      background: #0a7a7c;
       color: white;
       border: none;
       border-radius: 8px;
@@ -155,7 +155,7 @@
       transition: background .2s, transform .15s;
       box-shadow: 0 4px 14px rgba(42,92,69,0.35);
     }
-    .btn-primary:hover { background: #2A5C45; transform: translateY(-1px); }
+    .btn-primary:hover { background: #0a7a7c; transform: translateY(-1px); }
 
     .btn-secondary {
       background: rgba(255,255,255,0.12);
@@ -235,7 +235,7 @@
       font-weight: 700;
       margin-bottom: 12px;
     }
-    .badge-408 { background: #EBF3F0; color: #1E5C40; }
+    .badge-408 { background: #e0f2f2; color: #0a5055; }
     .badge-zmt { background: #F0EBF5; color: #5C3A7A; }
 
     .value-card h3 {
@@ -482,15 +482,15 @@
       margin-left: 8px;
       vertical-align: middle;
     }
-    .tag-408 { background: #EBF3F0; color: #1E5C40; }
+    .tag-408 { background: #e0f2f2; color: #0a5055; }
     .tag-zmt { background: #F0EBF5; color: #5C3A7A; }
-    .tag-value { background: #EBF5EE; color: #2F7A44; }
+    .tag-value { background: #e0f2f2; color: #0f6e72; }
 
     /* ===== TRUST ===== */
     .trust-section { background: white; }
     .trust-card {
-      background: linear-gradient(135deg, #F5F8F6, #EDF5F0);
-      border: 1.5px solid #C0D8CA;
+      background: linear-gradient(135deg, #F4F8F8, #e8f6f6);
+      border: 1.5px solid #b0d4d4;
       border-radius: var(--radius);
       padding: 28px 32px;
       margin-bottom: 24px;
@@ -590,7 +590,7 @@
 
     /* ===== CTA ===== */
     .cta-section {
-      background: linear-gradient(135deg, #1A3028, #2A5C45);
+      background: linear-gradient(135deg, #083a3e, #0f6e72);
       color: white;
       text-align: center;
       padding: 64px 0;
@@ -651,7 +651,7 @@
 
     /* ===== FOOTER ===== */
     footer {
-      background: #131C17;
+      background: #0a5055;
       color: rgba(255,255,255,0.45);
       text-align: center;
       padding: 24px;
@@ -712,9 +712,9 @@
     }
     .btn-buy:hover { background: var(--primary-light); transform: translateY(-1px); }
     .price-card.featured .btn-buy {
-      background: #3A7A5C;
+      background: #0a7a7c;
     }
-    .price-card.featured .btn-buy:hover { background: #2A5C45; }
+    .price-card.featured .btn-buy:hover { background: #0f6e72; }
 
     /* ===== WECHAT MODAL ===== */
     .wechat-overlay {
@@ -949,7 +949,7 @@
     .upgrade-section { background: var(--bg); }
 
     .upgrade-banner {
-      background: linear-gradient(135deg, #1A3028, #2A5C45);
+      background: linear-gradient(135deg, #083a3e, #0f6e72);
       border-radius: var(--radius);
       padding: 20px 28px;
       color: white;
@@ -957,7 +957,7 @@
       font-size: 15px;
       line-height: 1.8;
     }
-    .upgrade-banner strong { color: #C8E6A0; }
+    .upgrade-banner strong { color: #a8e6e6; }
 
     .upgrade-list {
       display: flex;
@@ -1008,8 +1008,8 @@
       border-radius: 4px;
       margin-left: 8px;
       vertical-align: middle;
-      background: #EBF3F0;
-      color: #1E5C40;
+      background: #e0f2f2;
+      color: #0a5055;
     }
     .upgrade-content p {
       font-size: 14px;
@@ -1415,7 +1415,7 @@
         <div class="divider"></div>
       </div>
       <div class="pricing-note">
-        💡 B 站对应视频完成「三连 + 关注」后加微信截图，即可解锁优惠价
+        💡 预售期：2026年4月10日-4月30日，以下为预售价
       </div>
       <div class="pricing-grid">
 
@@ -1427,7 +1427,6 @@
             <span class="price-original">¥298</span>
             <span class="price-save">省60元</span>
           </div>
-          <div class="price-unlock">B 站三连解锁专属优惠价</div>
           <ul class="price-features">
             <li>代码文档和定制自命题重点</li>
             <li>配套讲解视频（全套）</li>
@@ -1444,7 +1443,6 @@
             <span class="price-original">¥258</span>
             <span class="price-save">省60元</span>
           </div>
-          <div class="price-unlock">B 站三连解锁专属优惠价</div>
           <ul class="price-features">
             <li>代码文档和408重点代码</li>
             <li>配套讲解视频（全套）</li>
@@ -1461,7 +1459,6 @@
             <span class="price-original">¥88</span>
             <span class="price-save">省20元</span>
           </div>
-          <div class="price-unlock">B 站三连解锁专属优惠价</div>
           <ul class="price-features">
             <li>全部代码文档</li>
             <li class="li-no">无讲解视频（自学型）</li>
