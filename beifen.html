@@ -155,7 +155,7 @@
       transition: background .2s, transform .15s;
       box-shadow: 0 4px 14px rgba(42,92,69,0.35);
     }
-    .btn-primary:hover { background: #0a7a7c; transform: translateY(-1px); }
+    .btn-primary:hover { background: #0f6e72; transform: translateY(-1px); }
 
     .btn-secondary {
       background: rgba(255,255,255,0.12);
@@ -316,51 +316,13 @@
     .pricing-section { background: white; }
     .pricing-note {
       text-align: center;
-      background: linear-gradient(135deg, #ff6b35, #ff4444);
-      border-radius: 10px;
-      padding: 12px 20px;
-      font-size: 14px;
-      color: white;
-      margin-bottom: 28px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      box-shadow: 0 4px 20px rgba(255,80,50,0.45);
-      position: relative;
-      overflow: hidden;
-      animation: presalePulse 2.5s ease-in-out infinite;
-    }
-    @keyframes presalePulse {
-      0%, 100% { box-shadow: 0 4px 20px rgba(255,80,50,0.45); }
-      50% { box-shadow: 0 6px 30px rgba(255,80,50,0.80); }
-    }
-    .pricing-note::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -60%;
-      width: 40%; height: 100%;
-      background: rgba(255,255,255,0.15);
-      transform: skewX(-20deg);
-    }
-    .countdown-wrap {
-      margin-top: 6px;
+      background: var(--primary-bg);
+      border-radius: 8px;
+      padding: 11px 20px;
       font-size: 13px;
+      color: var(--primary);
+      margin-bottom: 28px;
       font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-    .cd-block {
-      display: inline-block;
-      background: rgba(255,255,255,0.22);
-      border-radius: 5px;
-      padding: 1px 6px;
-      font-size: 15px;
-      font-weight: 800;
-      min-width: 30px;
-      text-align: center;
-      letter-spacing: 1px;
     }
     .pricing-grid {
       display: grid;
@@ -1196,7 +1158,7 @@
     }
     /* Lightbox */
     .lightbox {
-      display: flex;
+      display: none;
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.82);
@@ -1204,21 +1166,13 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.15s ease;
-      will-change: opacity;
     }
-    .lightbox.open {
-      opacity: 1;
-      visibility: visible;
-    }
+    .lightbox.open { display: flex; }
     .lightbox img {
       max-width: 90vw;
       max-height: 88vh;
       border-radius: 8px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-      will-change: transform;
     }
     .lightbox-close {
       position: fixed;
@@ -1321,6 +1275,7 @@
       <button class="nav-link" onclick="showPage('about', this)">我的简介</button>
       <button class="nav-link" onclick="showPage('docs', this)">文档样例</button>
       <button class="nav-link" onclick="showPage('reviews', this)">学员评价</button>
+      <a class="nav-link" href="https://www.bilibili.com/video/BV1bNgQzTEBw/" target="_blank" rel="noopener">试听课链接</a>
       
       
       
@@ -1338,8 +1293,7 @@
       <h1>27考研数据结构代码课程<br></h1>
       <div class="hero-cta">
         <a href="#free" class="btn-secondary">🎁 免费领取基础题</a>
-        <a href="https://www.bilibili.com/video/BV1bNgQzTEBw/" target="_blank" rel="noopener" class="btn-secondary">▶ 试听课链接</a>
-        <a href="#pricing" class="btn-secondary">📺 课程版本和价格</a>
+        <a href="#pricing" class="btn-primary">📺 课程版本和价格</a>
       </div>
     </div>
   </section>
@@ -1435,11 +1389,11 @@
         <div class="free-steps">
           <div class="step">
             <span class="step-num">1</span>
-            <span>点击下方按钮前往b站，对该视频「三连+关注」</span>
+            <span>点击下方按钮，对该视频完成「三连 + 关注」操作</span>
           </div>
           <div class="step">
             <span class="step-num">2</span>
-            <span>添加微信后，截图私信即可领取</span>
+            <span>添加微信后，私信即可领取</span>
           </div>
         </div>
         <button class="btn-buy" style="margin-top:6px;" onclick="openWechat('添加微信，免费领取基础题')">💬 复制微信号</button>
@@ -1457,18 +1411,11 @@
   <section class="pricing-section" id="pricing">
     <div class="container">
       <div class="section-header">
-        <h2>付费资料和课程</h2>
+        <h2>付费课程</h2>
         <div class="divider"></div>
       </div>
       <div class="pricing-note">
-        🔥 预售限时特惠 5月1日恢复原价！
-        <div class="countdown-wrap">
-          距优惠截止还剩：
-          <span class="cd-block" id="cd-days">--</span>天
-          <span class="cd-block" id="cd-hours">--</span>时
-          <span class="cd-block" id="cd-mins">--</span>分
-          <span class="cd-block" id="cd-secs">--</span>秒
-        </div>
+        💡 B 站对应视频完成「三连 + 关注」后加微信截图，即可解锁优惠价
       </div>
       <div class="pricing-grid">
 
@@ -1476,15 +1423,15 @@
           <div class="plan-name">自命题版</div>
           <div class="plan-target">适合：自命题考生（基础薄弱）</div>
           <div class="price-row">
-            <span class="price-current">¥258</span>
+            <span class="price-current">¥238</span>
             <span class="price-original">¥298</span>
-            <span class="price-save">省40元</span>
+            <span class="price-save">省60元</span>
           </div>
           <ul class="price-features">
             <li>代码文档和定制自命题重点</li>
             <li>配套讲解视频（全套）</li>
             <li>重邮 / 新大 / 湖大专属真题</li>
-            <li>含全部 5 大赠送权益</li>
+            <li>含全部 6 大赠送权益</li>
           </ul>
         </div>
 
@@ -1493,14 +1440,14 @@
           <div class="plan-target">适合：408 考生（基础薄弱）</div>
           <div class="price-row">
             <span class="price-current">¥198</span>
-            <span class="price-original">¥238</span>
-            <span class="price-save">省40元</span>
+            <span class="price-original">¥258</span>
+            <span class="price-save">省60元</span>
           </div>
           <ul class="price-features">
             <li>代码文档和408重点代码</li>
             <li>配套讲解视频（全套）</li>
             <li>18年真题代码全覆盖</li>
-            <li>含全部 5 大赠送权益</li>
+            <li>含全部 6 大赠送权益</li>
           </ul>
         </div>
 
@@ -1650,13 +1597,10 @@
       <div class="about-card">
         <h3>👨‍🎓 我是谁？</h3>
         <p>本科就读于<strong>华东理工大学化工专业（16级）</strong>，大三时下定决心转换赛道，备考计算机研究生。最初目标院校是北京邮电大学，准备了大半年后，9月决定改选<strong>北京理工大学计算机专业</strong>。虽然临时换了目标，但备考节奏没有乱，最终顺利上岸。</p>
-        <p>备考期间制作了数据结构代码题集，小范围售卖后得到众多好评。后续开始对题目录制讲解视频，从20年开始仅凭借数据结构代码课程，在b站（全网同名：我头发还多还能学）<strong>收获7.5万粉丝</strong>，微信公众号收获<strong>1.2万粉丝</strong>。购买课程人数累计突破1万人，目前有三个微信号，累计好友人数超2.5万人</p>
+        <p>备考期间制作了数据结构代码题集，小范围售卖后得到众多好评。后续开始对题目录制讲解视频，从20年开始仅凭借数据结构代码课程，在b站（我头发还多还能学）<strong>收获7.5万粉丝</strong>，微信公众号收获<strong>1.2万粉丝</strong>。购买课程人数累计突破1万人，目前有三个微信号，累计好友人数超2.5万人</p>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
-          <div>
-            <img src="images/who/718a0a18b373a804d5748e9334c03b51.jpg" alt="相关图片1" loading="lazy" style="width:100%;border-radius:8px;object-fit:cover;cursor:pointer;" onclick="openWhoLightbox(this)" />
-            <a href="https://b23.tv/TjqD9TU" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:8px;font-size:13px;color:var(--primary);font-weight:600;text-decoration:none;">📺 前往关注 →</a>
-          </div>
+          <img src="images/who/718a0a18b373a804d5748e9334c03b51.jpg" alt="相关图片1" loading="lazy" style="width:100%;border-radius:8px;object-fit:cover;cursor:pointer;" onclick="openWhoLightbox(this)" />
           <img src="images/who/b867dd89706320b3ca955b61220d2d55.png" alt="相关图片2" loading="lazy" style="width:100%;border-radius:8px;object-fit:cover;cursor:pointer;" onclick="openWhoLightbox(this)" />
         </div>
 
@@ -1695,12 +1639,6 @@
 </div>
 <!-- /page-about -->
 
-<!-- Lightbox (about/who) -->
-<div class="lightbox" id="who-lightbox" onclick="closeWhoLightbox()">
-  <span class="lightbox-close" onclick="closeWhoLightbox()">×</span>
-  <img id="who-lightbox-img" src="" alt="图片放大" />
-</div>
-
 
 <!-- ===== PAGE: DOCS ===== -->
 <div id="page-docs" class="page">
@@ -1708,7 +1646,9 @@
     <div class="docs-page">
 
       <div class="section-header" style="margin-bottom:24px;">
+        <span class="section-tag">文档案例</span>
         <h2>课程文档实拍展示</h2>
+        <p style="margin-top:8px;">真实文档截图，提前感受内容质量</p>
         <div class="divider"></div>
       </div>
 
@@ -1778,6 +1718,7 @@
 
       <div class="section-header" style="margin-bottom:24px;">
         <h2>真实学员反馈</h2>
+        <p style="margin-top:8px;">来自微信、B站的真实好评截图</p>
         <div class="divider"></div>
       </div>
 
@@ -1815,30 +1756,6 @@
 
 
 <script>
-  /* ===== COUNTDOWN ===== */
-  (function() {
-    const deadline = new Date('2026-05-01T00:00:00+08:00').getTime();
-    function update() {
-      const now = Date.now();
-      const diff = deadline - now;
-      if (diff <= 0) {
-        document.querySelector('.pricing-note') && (document.querySelector('.countdown-wrap').textContent = '预售已结束');
-        return;
-      }
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      const fmt = n => String(n).padStart(2, '0');
-      document.getElementById('cd-days').textContent = fmt(d);
-      document.getElementById('cd-hours').textContent = fmt(h);
-      document.getElementById('cd-mins').textContent = fmt(m);
-      document.getElementById('cd-secs').textContent = fmt(s);
-    }
-    update();
-    setInterval(update, 1000);
-  })();
-
   /* ===== PAGE SWITCHING ===== */
   function showPage(pageId, btn) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1950,21 +1867,10 @@
     document.getElementById('lightbox').classList.remove('open');
   }
 
-  /* 我的介绍页图片放大 — 提前预加载避免卡顿 */
-  (function preloadWhoImages() {
-    const srcs = [
-      'images/who/718a0a18b373a804d5748e9334c03b51.jpg',
-      'images/who/b867dd89706320b3ca955b61220d2d55.png'
-    ];
-    srcs.forEach(src => { const i = new Image(); i.src = src; });
-  })();
-
+  /* 我的介绍页图片放大 */
   function openWhoLightbox(img) {
-    document.getElementById('who-lightbox-img').src = img.src;
-    document.getElementById('who-lightbox').classList.add('open');
-  }
-  function closeWhoLightbox() {
-    document.getElementById('who-lightbox').classList.remove('open');
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox').classList.add('open');
   }
 
   /* ===== LIGHTBOX: REVIEWS ===== */
@@ -1982,7 +1888,6 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       closeLightbox();
-      closeWhoLightbox();
       closeReviewLightbox();
     }
   });
