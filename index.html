@@ -709,6 +709,73 @@
     .tag-zmt { background: #F0EBF5; color: #5C3A7A; }
     .tag-value { background: #e0f2f2; color: #0f6e72; }
 
+    /* ===== SCHOOL STATS ===== */
+    .school-stats-section { background: white; }
+    .school-stats-intro {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .school-stats-intro strong { color: var(--text); }
+    .school-table-wrap {
+      overflow-x: auto;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+    }
+    .school-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      min-width: 320px;
+    }
+    .school-table th {
+      background: #003d42;
+      color: #b8dede;
+      font-weight: 700;
+      text-align: center;
+      padding: 12px 10px;
+    }
+    .school-table td {
+      padding: 10px 12px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+    }
+    .school-table td:first-child {
+      font-weight: 700;
+      text-align: left;
+      padding-left: 16px;
+    }
+    .school-table tbody tr:nth-child(even) { background: var(--bg); }
+    .school-table tbody tr.school-top td {
+      background: var(--primary-bg);
+      font-weight: 700;
+    }
+    .school-count { font-variant-numeric: tabular-nums; color: var(--primary); font-weight: 800; }
+    .school-diff {
+      display: inline-block;
+      min-width: 22px;
+      height: 22px;
+      line-height: 22px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      background: #e0f2f2;
+      color: #0a5055;
+    }
+    .school-diff.diff-4 { background: #0a7a7c; color: white; }
+    .school-diff.diff-3 { background: #12a0a0; color: white; }
+    .school-stats-note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.7;
+    }
+
     /* ===== TRUST ===== */
     .trust-section { background: white; }
     .trust-card {
@@ -1094,6 +1161,10 @@
       .benefit-icon { font-size: 22px; width: 34px; }
       .benefit-content h4 { font-size: 14px; }
       .benefit-content p { font-size: 13px; }
+      .school-stats-intro { font-size: 14px; text-align: left; }
+      .school-table { font-size: 13px; }
+      .school-table th, .school-table td { padding: 8px 8px; }
+      .school-table td:first-child { padding-left: 12px; }
       /* Upgrade */
       .upgrade-item { padding: 16px 14px; gap: 12px; }
       .upgrade-num { min-width: 30px; height: 30px; font-size: 14px; }
@@ -1701,7 +1772,7 @@
             <h4>分院校重点勾画 + 专属真题
               <span class="benefit-tag tag-zmt">自命题必看</span>
             </h4>
-            <p>自命题分院校定制不同重点分析，<strong>重邮 / 新大 </strong>额外赠送专属代码真题讲解，不复习偏、不做无用功。</p>
+            <p>自命题分院校定制不同重点分析，<strong>重邮 / 新大 </strong>额外赠送专属代码真题讲解，不复习偏、不做无用功。表中学校均已建微信小群，详见下方统计。</p>
           </div>
         </div>
 
@@ -1734,6 +1805,106 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ⑤b SCHOOL STATS -->
+  <section class="school-stats-section" id="school-stats">
+    <div class="container">
+      <div class="section-header">
+        <h2>自命题院校购课统计</h2>
+        <div class="divider"></div>
+      </div>
+      <p class="school-stats-intro">
+        以下为目前购买自命题版的人数统计。这些学校都有<strong>专属微信小群</strong>，并已按院校<strong>勾画代码重点</strong>，方便大家高效学习代码。
+      </p>
+      <div class="school-table-wrap">
+        <table class="school-table">
+          <thead>
+            <tr>
+              <th>自命题学校</th>
+              <th>代码难度</th>
+              <th>人数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="school-top">
+              <td>重庆邮电</td>
+              <td><span class="school-diff diff-4">4</span></td>
+              <td class="school-count">424</td>
+            </tr>
+            <tr>
+              <td>中央民族</td>
+              <td><span class="school-diff diff-3">3</span></td>
+              <td class="school-count">106</td>
+            </tr>
+            <tr>
+              <td>新疆大学</td>
+              <td><span class="school-diff diff-3">3</span></td>
+              <td class="school-count">62</td>
+            </tr>
+            <tr>
+              <td>重庆理工</td>
+              <td><span class="school-diff">2</span></td>
+              <td class="school-count">59</td>
+            </tr>
+            <tr>
+              <td>华中师范</td>
+              <td><span class="school-diff">2</span></td>
+              <td class="school-count">23</td>
+            </tr>
+            <tr>
+              <td>东华大学</td>
+              <td><span class="school-diff diff-3">3</span></td>
+              <td class="school-count">23</td>
+            </tr>
+            <tr>
+              <td>重庆师范</td>
+              <td><span class="school-diff">2</span></td>
+              <td class="school-count">16</td>
+            </tr>
+            <tr>
+              <td>西安工业</td>
+              <td><span class="school-diff">2</span></td>
+              <td class="school-count">15</td>
+            </tr>
+            <tr>
+              <td>西安理工</td>
+              <td><span class="school-diff">2</span></td>
+              <td class="school-count">14</td>
+            </tr>
+            <tr>
+              <td>西安邮电</td>
+              <td><span class="school-diff">2</span></td>
+              <td class="school-count">13</td>
+            </tr>
+            <tr>
+              <td>西安石油</td>
+              <td><span class="school-diff">2</span></td>
+              <td class="school-count">11</td>
+            </tr>
+            <tr>
+              <td>安徽财经</td>
+              <td><span class="school-diff">2</span></td>
+              <td class="school-count">10</td>
+            </tr>
+            <tr>
+              <td>华中科技</td>
+              <td><span class="school-diff diff-3">3</span></td>
+              <td class="school-count">4</td>
+            </tr>
+            <tr>
+              <td>中国石油</td>
+              <td><span class="school-diff diff-3">3</span></td>
+              <td class="school-count">3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="school-stats-note">
+        人数为当前购课统计；代码难度 2–4，数字越大越难。<br>
+        目标院校不在表中也可以加微信咨询，确认是否适合自命题版。
+      </p>
     </div>
   </section>
 
