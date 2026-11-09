@@ -548,8 +548,9 @@
     }
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
+      padding-top: 12px;
     }
     @media (max-width: 640px) {
       .pricing-grid { grid-template-columns: 1fr; }
@@ -1708,18 +1709,37 @@
           <div class="plan-name">408版</div>
           <div class="plan-target">适合：408 考生（基础薄弱）</div>
           <div class="price-row">
-            <span class="price-current">¥198</span>
+            <span class="price-current">¥258</span>
             <span class="price-original">¥298</span>
-            <span class="price-save">省100元</span>
+            <span class="price-save">省40元</span>
           </div>
           <div class="price-unlock">B 站三连优惠价</div>
           <ul class="price-features">
-            <li>代码文档和408重点代码</li>
+            <li>代码文档和408重点代码（全套）</li>
             <li>配套讲解视频（全套）</li>
             <li>18年真题代码全覆盖</li>
             <li>含全部 5 大赠送权益</li>
           </ul>
           <button class="btn-buy" onclick="openWechat('408版')">💬 联系购买</button>
+        </div>
+
+        <div class="price-card featured">
+          <div class="featured-label">适合突击</div>
+          <div class="plan-name">408速成版</div>
+          <div class="plan-target">适合：时间紧、临考突击的 408 考生</div>
+          <div class="price-row">
+            <span class="price-current">¥198</span>
+            <span class="price-original">¥258</span>
+            <span class="price-save">省60元</span>
+          </div>
+          <div class="price-unlock">B 站三连优惠价</div>
+          <ul class="price-features">
+            <li>47 个重点代码（文档 + 视频）</li>
+            <li>18 道代码真题（文档 + 视频）</li>
+            <li>精选突击，不讲偏题</li>
+            <li>含全部 5 大赠送权益</li>
+          </ul>
+          <button class="btn-buy" onclick="openWechat('408速成版')">💬 联系购买</button>
         </div>
 
         <div class="price-card">
@@ -1752,7 +1772,7 @@
         <div class="divider"></div>
       </div>
       <div class="benefits-gate">
-        <strong>以下权益仅适用于购买 408版 或 自命题版的同学</strong>
+        <strong>以下权益仅适用于购买 408版、408速成版 或 自命题版的同学</strong>
       </div>
       <div class="benefit-list">
 
